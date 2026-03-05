@@ -1,4 +1,5 @@
 (function () {
+    console.log("Hello world!");
     "use strict";
     var app = angular.module('viewCustom', ['angularLoad']);
     // Load LibChat
