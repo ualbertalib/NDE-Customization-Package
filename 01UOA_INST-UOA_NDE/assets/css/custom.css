@@ -5,6 +5,19 @@ body, nde-full-display-navigation, .filters-container{
 nde-logo {
   display: none;
 }
+.ual-top-banner {background-color:#275D38; height:80px; padding:15px 0 15px 30px;}
+.ual-top-banner img {float:left; height:50px;}
+.ual-inner {margin:auto; width:1240px;}
+.ual-library-tag {float:left; color:#F2CD00; font-size:1.8rem; text-decoration: none; margin:10px 0 0 40px; font-weight: 200;}
+.container[_ngcontent-ng-c1597471306] .custom-search-bar-container[_ngcontent-ng-c1597471306] h2[_ngcontent-ng-c1597471306] {
+  display: none;
+}
+.container[_ngcontent-ng-c1597471306] .custom-search-bar-container[_ngcontent-ng-c1597471306] {
+  height:10rem !important;
+}
+.container[_ngcontent-ng-c1597471306] .top-bar-background-image[_ngcontent-ng-c1597471306]{
+  background-image: none !important;
+}
 .links-block .separated-block-item:after {
     transform: rotate(0deg);
   }
@@ -32,11 +45,17 @@ nde-logo {
 
 @keyframes pulse {to {box-shadow: 0 0 0 6px rgba(200,107,168, 0);}}
 
-/* move the sign in box to the bottom left*/
+/* move the sign in box to the top right*/
 #cdk-overlay-1 {
   position: fixed !important;
   top: 20px !important;
   right: 20px !important;
   bottom: auto !important;
   left: auto !important;
+}
+
+@media only screen and (min-width: 1280px) and (max-width: 1919.98px) {
+    .cdk-overlay-container:has(.main-menu-dialog) {
+        top: 135px;
+    }
 }
