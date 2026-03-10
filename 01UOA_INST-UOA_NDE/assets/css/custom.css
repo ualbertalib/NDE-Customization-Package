@@ -57,7 +57,7 @@ nde-logo {
   left: auto !important;
 }
 
-@media only screen and (min-width: 1280px) and (max-width: 1919.98px) {
+@media only screen and (min-width: 768px) and (max-width: 1919.98px) {
     .cdk-overlay-container:has(.main-menu-dialog) {
         top: 135px !important;
     }
