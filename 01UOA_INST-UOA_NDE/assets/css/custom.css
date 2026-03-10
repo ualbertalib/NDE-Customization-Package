@@ -10,7 +10,8 @@ nde-logo {
 .ual-inner {margin:auto; width:1240px;}
 .ual-library-tag {float:left; color:#F2CD00; font-size:1.8rem; text-decoration: none; margin:7px 0 0 35px; font-weight: 200;}
 
-
+.cdk-overlay-container:has(.main-menu-dialog) {
+        top: 105px;}
 
 
 .container[_ngcontent-ng-c1597471306] .custom-search-bar-container[_ngcontent-ng-c1597471306] h2[_ngcontent-ng-c1597471306] {
@@ -25,6 +26,8 @@ nde-logo {
 .links-block .separated-block-item:after {
     transform: rotate(0deg);
   }
+
+ /* chat widget styles */ 
 .s-lch-widget-float.open{
   height:75%;
   top:auto;
