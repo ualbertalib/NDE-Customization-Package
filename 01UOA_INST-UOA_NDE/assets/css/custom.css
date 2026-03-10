@@ -5,6 +5,16 @@ body, nde-full-display-navigation, .filters-container{
 nde-logo {
   display: none;
 }
+.ual-top-banner {background-color:#275D38; height:70px; padding:15px 0 15px 30px;}
+.ual-top-banner img {float:left; height:40px;}
+.ual-inner {margin:auto; width:1240px;}
+.ual-library-tag {float:left; color:#F2CD00; font-size:1.8rem; text-decoration: none; margin:7px 0 0 35px; font-weight: 200;}
+.ual-home h2{
+  font-size:0.6rem;
+}
+.ual-home h3{
+  font-size:0.5rem;
+}
 .container[_ngcontent-ng-c1597471306] .custom-search-bar-container[_ngcontent-ng-c1597471306] h2[_ngcontent-ng-c1597471306] {
   display: none;
 }
@@ -16,6 +26,9 @@ nde-logo {
 }
 .container[_ngcontent-ng-c1597471306] nde-top-bar[_ngcontent-ng-c1597471306] {
     background-color: #f5f5f5 !important;
+}
+.home-page-container[_ngcontent-ng-c742759394] {
+    margin-top: 0 !important;
 }
 .custom-search-bar-container .background-overlay {
     display: none;
