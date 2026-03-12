@@ -5,56 +5,90 @@
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title>Search Home</title>
+    <link href="./homepage.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 </head>
 <body>
 <main class="main-landing-page display-flex flex-column flex-layout-center-center">
  
+<div class="page-wrapper">
 
-  <div class="about display-flex width-100">
-    <div class="about-content flex-row">
-      <div class="about-text flex-column flex-space-between ual-home">
-        <h2>Search the Library</h2>
-                <p>
-                    The main University of Alberta Library search box gives you access to full-text articles, books, e-books, journals, databases, articles, media and more. When you begin your search you will be able to choose the following categories:
-                </p>
-                <ul>
-                     <li><strong>Everything:</strong> Library Catalogue and Articles.</li>
-  <li><strong>Library Catalogue:</strong> Online and physical resources in the University of Alberta Library collection.</li>
-    <li><strong>Articles:</strong>
-Peer-reviewed journal articles, magazine articles, book chapters, and more from the Library collection and Open Access sources. </li></ul>
- <h3>More Search Options</h3>
- <ul>
+  <header class="page-header">
+    <h1>Search the Library</h1>
+  </header>
 
-  <li><strong>Search Beyond the Library:</strong>
- On the search results page you can expand your search to include a global index of over 5 billion scholarly publications. Beyond the Library results will include items that the Library does not have immediate access to.  These can usually be requested through <a href="https://www.library.ualberta.ca/services/interlibrary-loan">Interlibrary Loan</a>. </li>
+  <div class="two-col">
 
-         <li><strong>Course Materials:</strong>
-Search for course materials by course code, title or instructor name using <a href="https://ualberta.rl.ca.talis.com/index.html">Talis Aspire</a>. </li></ul>
-       
-               <p><a href="https://guides.library.ualberta.ca/LibrarySearch" class="btn">Search Guide</a></p>
- <h2 class="md-headline">How can I get help?</h2>
-<h3>Contact the library</h3>
-  <p>If you have questions or need help accessing library materials, ask library staff on our live chat (real humans). We also encourage you to visit our library locations, call, email or book a consultation. </p>
-  <p class="mt-4"><a href="https://www.library.ualberta.ca/ask-us" class="btn">Ask Us
-</a>  </p>
-<h3 class="mt-4">Frequently asked questions</h3>
-  <p>Get answers to common library questions about borrowing, placing holds, accessing specific materials and more.
- <a href="https://ualberta.libanswers.com/">View FAQs</a></p>
+    <!-- Search column -->
+    <div class="card">
+      <h2>What can you search?</h2>
+      <p>The main University of Alberta Library search box gives you access to full-text articles, books, e-books, journals, databases, media and more. Choose from the following categories:</p>
+      <ul class="category-list">
+        <li><strong>Everything</strong> — Library Catalogue and Articles</li>
+        <li><strong>Library Catalogue</strong> — Online and physical resources in the UA Library collection</li>
+        <li><strong>Articles</strong> — Peer-reviewed articles, book chapters, and Open Access sources</li>
+      </ul>
+
+      <hr class="card-divider">
+
+      <h2>More search options</h2>
+
+      <div class="sub-section">
+        <h3>Search Beyond the Library</h3>
+        <p>Expand your search on the results page to include a global index of over 5 billion scholarly publications. Items not immediately available can usually be requested through <a href="https://www.library.ualberta.ca/services/interlibrary-loan">Interlibrary Loan</a>.</p>
+      </div>
 
 
-      <h2 class="md-headline">Share your feedback</h2>
- <p>
-                  The University of Alberta Library is always making improvements to our collection, research tools and resources. If you have questions or comments, we would love to hear from you. </p>
-<p class="mt-4"><a href="https://www.library.ualberta.ca/ask-us/email-us" class="btn">Email us</a>
+
+      <div class="sub-section">
+        <h3>Course Materials</h3>
+        <p>Search for course materials by course code, title, or instructor name using <a href="https://ualberta.rl.ca.talis.com/index.html">Talis Aspire</a>.</p>
+        <div class="btn-group">
+          <a href="#" class="btn btn-primary">Search Guide</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Help column -->
+    <div class="card">
+      <h2>How can I get help?</h2>
+      <p>If you have questions or need help accessing library materials, ask library staff on our live chat (real humans). You can also visit our library locations, call, email, or book a consultation.</p>
+      <div class="btn-group">
+        <a href="#" class="btn btn-primary">Ask Us</a>
+      </div>
+
+      <hr class="card-divider">
+
+      <div class="sub-section">
+        <h2>Frequently asked questions</h2>
+        <p>Get answers to common questions about borrowing, placing holds, accessing specific materials and more.</p>
+        <div class="btn-group">
+          <a href="#" class="btn btn-outline">View FAQs</a>
+        </div>
+      </div>
+
+          <hr class="card-divider">
+
+      <div class="sub-section">
+        <h2>Share your feedback</h2>
+        <p>The University of Alberta Library is always making improvements to our collection, research tools and resources. We'd love to hear from you.</p>
+        <div class="btn-group">
+          <a href="#" class="btn btn-outline">Email Us</a>
+        </div>
+         <hr class="card-divider">
+          <h2>Statement on harmful language in catalogue records and resource descriptions</h2>
+      <p>The University of Alberta Library recognizes that our catalogue and resource descriptions contain language that reflects the biases, norms, and perspectives of the time in which they were created.</p>
+      <div class="btn-group">
+        <a href="#" class="btn btn-outline">Read the Full Statement</a>
+      </div>
+      </div>
+    </div>
 
 
-                </p>
-    
-     <h2 class="md-headline">Statement on Harmful Language in<br/> Catalogue Records and Resource Descriptions</h2>
- <p>The University of Alberta Library recognizes that our catalogue and resource descriptions contain language that reflects the biases, norms, and perspectives of the time in which they were created. In particular, for resources about persons and groups, this language is often outdated and harmful. <br/><a href="https://library.ualberta.ca/harmful-language-statement">Read the full statement</a></p> 
+
   </div>
-
+</div>
 </main>
 </body>
 </html>

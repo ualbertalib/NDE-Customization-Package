@@ -75,16 +75,18 @@
     });
     waitForLinks();
 
-    // Reposition sign-in overlay to top-right
+    // Reposition sign-in snackbar to top-right
     const signInObserver = new MutationObserver(() => {
-        const pane = document.querySelector('.cdk-overlay-container .cdk-overlay-pane');
-        if (pane) {
-            pane.style.setProperty('position', 'fixed', 'important');
-            pane.style.setProperty('top', '20px', 'important');
-            pane.style.setProperty('right', '20px', 'important');
-            pane.style.removeProperty('bottom');
-            pane.style.removeProperty('left');
-        }
+        const panes = document.querySelectorAll('.cdk-overlay-container .cdk-overlay-pane');
+        panes.forEach(pane => {
+            if (pane.querySelector('mat-snack-bar-container')) {
+                pane.style.setProperty('position', 'fixed', 'important');
+                pane.style.setProperty('top', '20px', 'important');
+                pane.style.setProperty('right', '20px', 'important');
+                pane.style.removeProperty('bottom');
+                pane.style.removeProperty('left');
+            }
+        });
     });
     signInObserver.observe(document.body, { childList: true, subtree: true });
 })();
