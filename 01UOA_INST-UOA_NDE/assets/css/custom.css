@@ -65,17 +65,10 @@ nde-logo {
 {
   animation: none;
 }
-
-@keyframes pulse {to {box-shadow: 0 0 0 6px rgba(200,107,168, 0);}}
-
-/* move the sign in box to the top right*/
-#cdk-overlay-1 {
-  position: fixed !important;
-  top: 20px !important;
-  right: 20px !important;
-  bottom: auto !important;
-  left: auto !important;
+.search-bar-container .search-input-field.keyboard-focused {
+  outline: 1px #007A5E !important;
 }
+@keyframes pulse {to {box-shadow: 0 0 0 6px rgba(200,107,168, 0);}}
 
 @media only screen and (min-width: 768px) and (max-width: 1919.98px) {
     .cdk-overlay-container:has(.main-menu-dialog) {

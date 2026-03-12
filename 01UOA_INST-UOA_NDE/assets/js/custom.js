@@ -1,6 +1,5 @@
 (function () {
     "use strict";
-
     function initAngular() {
         if (typeof angular === 'undefined') {
             setTimeout(initAngular, 50);
@@ -9,7 +8,6 @@
         var app = angular.module('viewCustom', ['angularLoad']);
     }
     initAngular();
-
     // Load LibChat
     (() => {
         const libchatHash = 'baadd67c0b9382719dabca82069083e2e6b6d873103a32cc235ec09ad41f22a5';
@@ -21,7 +19,6 @@
         scr.src = `https://${host}/load_chat.php?hash=${libchatHash}`;
         document.body.appendChild(scr);
     })();
-
     const allowedTexts = [
         "Display Source Record",
         "Theses and Dissertations subject guide",
@@ -29,7 +26,6 @@
         "Guide thématique sur les thèses et mémoires",
         "Afficher la notice de la source"
     ];
-
     const filterLinks = () => {
         const linksContainer = document.querySelector("#links");
         if (!linksContainer) return;
@@ -60,7 +56,6 @@
             }
         }
     };
-
     const waitForLinks = () => {
         filterLinks();
         let attempts = 0;
@@ -73,17 +68,26 @@
             }
         }, 300);
     };
-
     const observer = new MutationObserver(waitForLinks);
     observer.observe(document.body, {
         childList: true,
         subtree: true
     });
-
     waitForLinks();
 
+    // Reposition sign-in overlay to top-right
+    const signInObserver = new MutationObserver(() => {
+        const pane = document.querySelector('.cdk-overlay-container .cdk-overlay-pane');
+        if (pane) {
+            pane.style.setProperty('position', 'fixed', 'important');
+            pane.style.setProperty('top', '20px', 'important');
+            pane.style.setProperty('right', '20px', 'important');
+            pane.style.removeProperty('bottom');
+            pane.style.removeProperty('left');
+        }
+    });
+    signInObserver.observe(document.body, { childList: true, subtree: true });
 })();
-
 // Google Tag Manager
 (function(w, d, s, l, i) {
     w[l] = w[l] || [];
@@ -95,7 +99,6 @@
     j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
     f.parentNode.insertBefore(j, f);
 })(window, document, 'script', 'dataLayer', 'GTM-MX43PRW2');
-
 document.addEventListener('DOMContentLoaded', function () {
     var noscript = document.createElement('noscript');
     noscript.innerHTML = '<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MX43PRW2" height="0" width="0" style="display:none;visibility:hidden"></iframe>';
