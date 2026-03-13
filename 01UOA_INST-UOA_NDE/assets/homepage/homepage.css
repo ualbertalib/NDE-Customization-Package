@@ -11,8 +11,10 @@
 a{
   color: #275D38;
 }
+
 .page-wrapper {
-  width: 95%;
+  width: 99%;
+  box-sizing: border-box;
   font-family: 'Roboto', sans-serif;
 }
 
@@ -26,6 +28,7 @@ a{
   font-weight: 600;
   color: var(--ll-green);
   line-height: 1.1;
+  padding-left:5px;
 }
 
 .two-col {
@@ -75,7 +78,7 @@ padding-bottom: 0.8rem;
 
 .category-list {
   list-style: none;
- padding-left:2rem;
+ padding:0 4rem 0 3rem;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;

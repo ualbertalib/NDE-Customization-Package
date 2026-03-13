@@ -29,8 +29,8 @@
         if (!header || header.querySelector('.ual-top-banner')) return;
 
         header.innerHTML = `
-            <div class="ual-top-banner">
-                <div class="padding-right-left-big">
+            <div class="ual-top-banner top-bar flex-column header">
+                <div class="flex-row header-container">
                     <a href="https://ualberta.ca">
                         <img src="https://www.ualberta.ca/_assets/images/ua-logo-reversed-white.svg" alt="University of Alberta">
                     </a>
