@@ -9,17 +9,10 @@ nde-logo {
   display: none;
 }
 
-@media (min-width: 1280px) {
-    .container .top-bar div{
-        width: clamp(1088px, 85%, 1368px);
-    }
-}
 
-.container .top-bar div {
-    margin: 0 auto;
-}
-.ual-top-banner {background-color:#275D38; height:70px; width: 100%; padding:15px 8px;}
+.ual-top-banner {background-color:#275D38; height:70px;  width:100%; padding:15px 8px;}
 .ual-top-banner img {float:left; height:40px;}
+.ual-inner {width: clamp(1088px, 85%, 1368px); margin: auto;}
 .ual-library-tag {float:left; color:#F2CD00; font-size:1.8rem; text-decoration: none; margin:7px 0 0 35px; font-weight: 200;}
 
 .main-landing-page .about .about-content .about-text {
