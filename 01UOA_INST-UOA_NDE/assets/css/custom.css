@@ -1,5 +1,5 @@
 
-body, nde-full-display-navigation, .filters-container, .quick-filters{
+body, nde-full-display-navigation, .filters-container, .quick-filters, .side-nav-filters-actions, .filters-side-bar-content, .search-results-wrapper nde-search-results-top-bar{
   background-color: #f5f5f5 !important;
 }
 nde-logo {
