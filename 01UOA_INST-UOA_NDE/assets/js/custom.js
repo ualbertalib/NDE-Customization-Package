@@ -25,19 +25,16 @@
     // =========================================================================
     function injectBanner() {
         const header = document.querySelector('nde-header');
- 
-        // Exit if header doesn't exist yet, or banner is already present
+
         if (!header || header.querySelector('.ual-top-banner')) return;
- 
+
         header.innerHTML = `
-            <div>
-                <div class="ual-top-banner">
-                    <div class="ual-inner">
-                        <a href="https://ualberta.ca">
-                            <img src="https://www.ualberta.ca/_assets/images/ua-logo-reversed-white.svg" alt="University of Alberta">
-                        </a>
-                        <a href="https://library.ualberta.ca" class="ual-library-tag">Library</a>
-                    </div>
+            <div class="ual-top-banner">
+                <div class="padding-right-left-big">
+                    <a href="https://ualberta.ca">
+                        <img src="https://www.ualberta.ca/_assets/images/ua-logo-reversed-white.svg" alt="University of Alberta">
+                    </a>
+                    <a href="https://library.ualberta.ca" class="ual-library-tag">Library</a>
                 </div>
             </div>
         `;
