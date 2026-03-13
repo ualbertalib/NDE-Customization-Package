@@ -1,5 +1,5 @@
 
-body, nde-full-display-navigation, .filters-container{
+body, nde-full-display-navigation, .filters-container, .quick-filters{
   background-color: #f5f5f5 !important;
 }
 nde-logo {
@@ -16,25 +16,25 @@ nde-logo {
 .main-landing-page .about .about-content .about-text {
   gap:0.3rem;
 }
-.container[_ngcontent-ng-c1597471306] .custom-search-bar-container[_ngcontent-ng-c1597471306] h2[_ngcontent-ng-c1597471306] {
+.container .custom-search-bar-container h2 {
   display: none;
 }
-.container[_ngcontent-ng-c1597471306] .custom-search-bar-container[_ngcontent-ng-c1597471306] {
+.container .custom-search-bar-container{
   height:10rem !important;
 }
-.container[_ngcontent-ng-c1597471306] .top-bar-background-image[_ngcontent-ng-c1597471306]{
+.container .top-bar-background-image{
   background-image: none !important;
 }
-.container[_ngcontent-ng-c1597471306] nde-top-bar[_ngcontent-ng-c1597471306] {
+.container nde-top-bar{
     background-color: #f5f5f5 !important;
 }
-.home-page-container[_ngcontent-ng-c742759394] {
+.home-page-container {
     margin-top: 0 !important;
 }
 .custom-search-bar-container .background-overlay {
     display: none;
 }
-.search-bar-container[_ngcontent-ng-c2395076749] .advanced-search-button.advanced-search-btn-home-page[_ngcontent-ng-c2395076749]{
+.search-bar-container .advanced-search-button.advanced-search-btn-home-page {
   color: #296b2b !important;
 }
 .links-block .separated-block-item:after {

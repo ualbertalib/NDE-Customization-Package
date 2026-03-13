@@ -75,7 +75,7 @@ padding-bottom: 0.8rem;
 
 .category-list {
   list-style: none;
- padding-left:1rem;
+ padding-left:2rem;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
