@@ -1,6 +1,6 @@
 (function () {
     "use strict";
- 
+
     // =========================================================================
     // ANGULAR INITIALIZATION
     // Waits for Angular to be available before registering the custom module.
@@ -14,8 +14,8 @@
         var app = angular.module('viewCustom', ['angularLoad']);
     }
     initAngular();
- 
- 
+
+
     // =========================================================================
     // UAL TOP BANNER INJECTION
     // Injects the University of Alberta top banner into the nde-header element.
@@ -39,18 +39,18 @@
             </div>
         `;
     }
- 
+
     const bannerObserver = new MutationObserver(() => {
         const header = document.querySelector('nde-header');
         if (header && !header.querySelector('.ual-top-banner')) {
             injectBanner();
         }
     });
- 
+
     // Watch the full document tree for Angular rendering nde-header
     bannerObserver.observe(document.body, { childList: true, subtree: true });
- 
- 
+
+
     // =========================================================================
     // LIBCHAT WIDGET
     // Dynamically loads the LibAnswers live chat widget by appending a div
@@ -59,19 +59,19 @@
     (() => {
         const libchatHash = 'baadd67c0b9382719dabca82069083e2e6b6d873103a32cc235ec09ad41f22a5';
         const host = 'ualberta.libanswers.com';
- 
+
         // Create the div anchor the LibChat script will attach to
         const div = document.createElement('div');
         div.id = `libchat_${libchatHash}`;
         document.body.appendChild(div);
- 
+
         // Load the LibChat script
         const scr = document.createElement('script');
         scr.src = `https://${host}/load_chat.php?hash=${libchatHash}`;
         document.body.appendChild(scr);
     })();
- 
- 
+
+
     // =========================================================================
     // RECORD LINKS FILTER
     // On full record pages, hides any links in the #links container that are
@@ -85,19 +85,19 @@
         "Guide thématique sur les thèses et mémoires",
         "Afficher la notice de la source"
     ];
- 
+
     const filterLinks = () => {
         const linksContainer = document.querySelector("#links");
         if (!linksContainer) return;
- 
+
         const links = linksContainer.querySelectorAll("a");
         let visibleCount = 0;
- 
+
         links.forEach(link => {
             // Use the inner span text if present, otherwise fall back to link text
             const span = link.querySelector("span");
             const text = span ? span.textContent.trim() : link.textContent.trim();
- 
+
             if (allowedTexts.includes(text)) {
                 link.style.display = "";
                 visibleCount++;
@@ -105,7 +105,7 @@
                 link.style.display = "none";
             }
         });
- 
+
         // Show or remove the fallback message depending on visible link count
         const existingMessage = document.querySelector("#no-links-message");
         if (visibleCount === 0) {
@@ -120,7 +120,7 @@
             if (existingMessage) existingMessage.remove();
         }
     };
- 
+
     // Poll briefly after DOM changes to catch links rendered slightly after
     // the mutation fires (Angular may render children in multiple passes)
     const waitForLinks = () => {
@@ -135,15 +135,15 @@
             }
         }, 300);
     };
- 
+
     // Re-run the filter whenever the DOM changes (e.g. navigating to a new record)
     const linksObserver = new MutationObserver(waitForLinks);
     linksObserver.observe(document.body, { childList: true, subtree: true });
- 
+
     // Run immediately in case the links are already present on page load
     waitForLinks();
- 
- 
+
+
     // =========================================================================
     // SIGN-IN SNACKBAR REPOSITION
     // Moves the Angular Material snackbar that appears after sign-in from the
@@ -161,12 +161,112 @@
             }
         });
     });
- 
+
     signInObserver.observe(document.body, { childList: true, subtree: true });
- 
+
+
+    // =========================================================================
+    // FIRST-VISIT HINT POPUPS
+    // Shows a small dismissable tooltip near the filter panel and bookmark
+    // button on a user's first visit. Dismissed state is stored in
+    // localStorage so the popup never reappears after being closed.
+    //
+    // Styles live in custom.css under /* Hint popups */
+    //
+    // Each hint is watched via MutationObserver (consistent with the rest of
+    // this file) to handle Angular's async rendering. The observer disconnects
+    // as soon as its target element is found and shown.
+    // =========================================================================
+    const HINTS = [
+        {
+            id: 'facets',
+            storageKey: 'ual-hint-facets-v1',
+            selector: '#allFilterToggleButton',
+            anchor: 'right',
+            html: 'Use <strong>filters</strong> to narrow results by date, resource type, and more.',
+        },
+        {
+            id: 'bookmark',
+            storageKey: 'ual-hint-bookmark-v1',
+            // querySelector returns the first match only, so the hint
+            // appears on the first result item's bookmark button alone.
+            selector: '[data-qa="save-to-favorites-btn"]',
+            anchor: 'left',
+            html: 'Save items to <strong>Favourites</strong> to find them again later — even across sessions.',
+        },
+    ];
+
+    function positionHint(popup, anchorEl, anchor) {
+        const r = anchorEl.getBoundingClientRect();
+        const p = popup.getBoundingClientRect();
+        const GAP = 2;
+
+        // Vertically centre on the anchor element, clamp within the viewport
+        let top = r.top + (r.height / 2) - (p.height / 2) + 10;
+        top = Math.max(8, Math.min(top, window.innerHeight - p.height - 8));
+        popup.style.top = top + 'px';
+
+        if (anchor === 'left') {
+            popup.style.left = (r.left - p.width - GAP) + 'px';
+        } else {
+            popup.style.left = (r.right + GAP) + 'px';
+        }
+    }
+
+    function showHint(hint, anchorEl) {
+        const popup = document.createElement('div');
+        popup.className = 'ual-hint';
+        popup.setAttribute('role', 'dialog');
+        popup.setAttribute('aria-label', 'Tip');
+        popup.setAttribute('data-anchor', hint.anchor);
+        popup.innerHTML = `
+            <div>${hint.html}</div>
+            <button class="ual-hint-dismiss" aria-label="Dismiss this tip">&#x00D7;</button>
+        `;
+
+        document.body.appendChild(popup);
+        positionHint(popup, anchorEl, hint.anchor);
+
+        const dismiss = () => {
+            localStorage.setItem(hint.storageKey, '1');
+            popup.remove();
+            window.removeEventListener('resize', reposition);
+        };
+
+        const reposition = () => positionHint(popup, anchorEl, hint.anchor);
+        window.addEventListener('resize', reposition, { passive: true });
+
+        popup.querySelector('.ual-hint-dismiss').addEventListener('click', dismiss);
+        popup.addEventListener('keydown', (e) => { if (e.key === 'Escape') dismiss(); });
+        popup.querySelector('.ual-hint-dismiss').focus();
+    }
+
+    function watchForHint(hint) {
+        if (localStorage.getItem(hint.storageKey)) return;
+
+        const observer = new MutationObserver(() => {
+            if (localStorage.getItem(hint.storageKey)) { observer.disconnect(); return; }
+
+            const el = document.querySelector(hint.selector);
+            if (!el) return;
+
+            observer.disconnect();
+
+            // Wait for Angular to finish rendering before measuring position
+            setTimeout(() => {
+                if (!document.contains(el) || el.offsetParent === null) return;
+                showHint(hint, el);
+            }, 700);
+        });
+
+        observer.observe(document.body, { childList: true, subtree: true });
+    }
+
+    HINTS.forEach(watchForHint);
+
 })();
- 
- 
+
+
 // =============================================================================
 // GOOGLE TAG MANAGER
 // Loads the GTM script asynchronously and appends a noscript fallback iframe
@@ -183,7 +283,7 @@
     j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
     f.parentNode.insertBefore(j, f);
 })(window, document, 'script', 'dataLayer', 'GTM-MX43PRW2');
- 
+
 // Append the GTM noscript fallback for environments where JS is disabled
 document.addEventListener('DOMContentLoaded', function () {
     var noscript = document.createElement('noscript');
