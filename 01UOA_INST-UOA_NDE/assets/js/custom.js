@@ -178,20 +178,21 @@
     // as soon as its target element is found and shown.
     // =========================================================================
     const HINTS = [
+    //  {
+    //    id: 'facets',
+    //        storageKey: 'ual-hint-facets-v1',
+    //        selector: '#allFilterToggleButton',
+    //        anchor: 'right',
+    //        html: 'Use <strong>filters</strong> to narrow your search results by date, resource type, and more.',
+    //    },
         {
-            id: 'facets',
-            storageKey: 'ual-hint-facets-v1',
-            selector: '#allFilterToggleButton',
-            anchor: 'right',
-            html: 'Use <strong>filters</strong> to narrow your search results by date, resource type, and more.',
+            id: 'bookmark',
+            storageKey: 'ual-hint-bookmark-v1',
+
+            selector: '[data-qa="save-to-favorites-btn"]',
+            anchor: 'left',
+            html: 'Save items to <strong>Favourites</strong> to find them again later.',
         },
-    //     {
-    //        id: 'bookmark',
-    //      storageKey: 'ual-hint-bookmark-v1',      
-    //     selector: '[data-qa="save-to-favorites-btn"]',
-    //     anchor: 'left',
-    //    html: 'Save items to <strong>Favourites</strong> to find them again later — even across sessions.',
-    //   },
     ];
 
     function positionHint(popup, anchorEl, anchor) {
@@ -200,7 +201,7 @@
         const GAP = 2;
 
         // Vertically centre on the anchor element, clamp within the viewport
-        let top = r.top + (r.height / 2) - (p.height / 2);
+        let top = r.top + (r.height / 2) - (p.height / 2) + 10;
         top = Math.max(8, Math.min(top, window.innerHeight - p.height - 8));
         popup.style.top = top + 'px';
 
