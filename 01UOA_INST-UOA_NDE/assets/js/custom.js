@@ -188,8 +188,7 @@
         {
             id: 'bookmark',
             storageKey: 'ual-hint-bookmark-v1',
-
-            selector: '[data-qa="save-to-favorites-btn"]',
+            selector: '.mat-mdc-icon-button.save-to-favorites-icon',
             anchor: 'left',
             html: 'Save items to <strong>Favourites</strong> to find them again later.',
         },
