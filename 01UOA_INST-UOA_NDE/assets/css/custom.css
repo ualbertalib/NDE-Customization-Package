@@ -19,7 +19,7 @@ nde-logo {  display: none; }
 
 .custom-search-bar-container .background-overlay { display: none; }
 
-.search-bar-container .advanced-search-button.advanced-search-btn-home-page { color: #296b2b !important; }
+.search-bar-container .advanced-search-button.advanced-search-btn-home-page { color: #275D38 !important; }
 
 .links-block .separated-block-item:after { transform: rotate(0deg);  }
 
@@ -46,7 +46,7 @@ nde-logo {  display: none; }
   animation: none;
 }
 .search-bar-container .search-input-field.keyboard-focused {
-  outline: 1px #007A5E !important;
+  outline: 1px #007A33 !important;
 }
 @keyframes pulse {to {box-shadow: 0 0 0 6px rgba(200,107,168, 0);}}
 
@@ -130,85 +130,91 @@ nde-logo {  display: none; }
     border-radius: 2px;
 }
 
+/*  hiding bright white hr near top of full display page */
+nde-full-display-navigation {  border-bottom: transparent!important; }
+
+/*  hiding outline of selected drop-down menu items */
+.nde-overrides .mat-mdc-option.mat-mdc-option-active.mdc-list-item {  outline: transparent!important;  }
+
 /* making tooltip font colour black */
 html { --mdc-plain-tooltip-supporting-text-color:#2b292a!important; }
 
 /* making top navbar and background of online access options bright white */
 .container .top-bar, .view-it-card-container {  background-color: #FFFFFF!important; }
 
-/* overriding custom-color-theme-green.css (under assets/color-themes) with UA colours */
+/* overriding custom-color-theme-green.css (under assets/color-themes) with ua colours */
 html {
-  --sys-background: #FFFFFF!important; /* bright white */  /* search box background!! */
-  --sys-error: #e56a54!important; /* UA coral */
-  --sys-error-container: #e56a54!important; /* UA coral */
-  --sys-inverse-on-surface: #F5F5F5!important;  /* digital white */  /* tooltip font, background of 'Everything' drop-down menu, background of Loans, Holds + Requests, Fees boxes in My Account */
-  --sys-inverse-primary: #007A33!important; /*UA light green */
+  --sys-background: #FFFFFF!important; /* bright white -- search box background */
+  --sys-error: #e56a54!important; /* ua red */
+  --sys-error-container: #e56a54!important; /* ua red */
+  --sys-inverse-on-surface: #F5F5F5!important;  /* digital white --- tooltip font, background of 'Everything' drop-down menu, background of loans,holds+requests,fees boxes in my account */
+  --sys-inverse-primary: #007A33!important; /* ua green */
   --sys-inverse-surface: #F2CD00!important; /* ua gold --- background of ALL tooltips */
   --sys-on-background: #2b292a!important;  /* black font */
   --sys-on-error: #F5F5F5!important; /* digital white */
-  --sys-on-error-container: #e56a54!important; /* UA coral */
-  --sys-on-primary: #F5F5F5!important; /* digital white */  /* font of place hold button, background of Saved Records and Current session search history in My Account */
+  --sys-on-error-container: #e56a54!important; /* ua red */
+  --sys-on-primary: #F5F5F5!important; /* digital white --- font of place hold button, background of saved records and current session search history in my account */
   --sys-on-primary-container: #2b292a!important;  /* black font */ 
   --sys-on-primary-fixed: #2b292a!important;  /* black font */ 
-  --sys-on-primary-fixed-variant: #275D38!important; /*UA green */
+  --sys-on-primary-fixed-variant: #275D38!important; /* ua dark green --- search summary border */
   --sys-on-secondary: #F5F5F5!important; /* digital white */
-  --sys-on-secondary-container:#2b292a!important; /* black font */  /* font of selected drop-down menu item */
-  --sys-on-secondary-fixed: #7BA4DB!important; /*UA green */
-  --sys-on-secondary-fixed-variant: #7BA4DB!important; /*UA light green */
-  --sys-on-surface: #2b292a!important;  /* black font */  /* all font that isn't links, pastel version of this is a hover shade for sections in full display page */
-  --sys-on-surface-variant: #275D38!important; /*UA green */ /* search filters circle hover when off ie. to turn on, heading font in Advanced search */
-  --sys-on-tertiary: #FFFFFF!important; /* digital white */
-  --sys-on-tertiary-container: #FFB600!important; /*UA dark gold */
-  --sys-on-tertiary-fixed: #FFB600!important; /*UA dark gold */
-  --sys-on-tertiary-fixed-variant: #F2CD00!important; /*UA gold */
-  --sys-outline: #848580!important; /*UA green */  /* resource font colour in search results, border around selected item in drop-down menu, icon colour in My Account */
-  --sys-outline-variant: #dddddd!important; /* UA gold */  /* border around horizontal filter buttons, hr in full display except for very top */
-  --sys-primary: #275D38!important; /*UA green */  /* font of all links, most icons, some borders, background of place hold button, border of Loans, Holds + Requests, Fees boxes in My Account */
-  --sys-primary-container: #dddddd!important; /* UA gold */ /* background of alert box (full display page, chapters of this book section, 'Please note that this is not necessarily a complete list of chapters.'), hover background of arrows in Browse Similar, hover background of circle in filters when on ie. to turn off  */
-  --sys-primary-fixed: #275D38!important; /*UA green */
-  --sys-primary-fixed-dim: #F2CD00!important; /* UA gold */   /* background of 'signed in as' */
+  --sys-on-secondary-container:#2b292a!important; /* black font --- font of selected drop-down menu item */
+  --sys-on-secondary-fixed: #7BA4DB!important; /* ua blue */
+  --sys-on-secondary-fixed-variant: #7BA4DB!important; /* ua blue */
+  --sys-on-surface: #2b292a!important;  /* black font --- all font that isn't links, pastel version of this is a hover shade for sections in full display page */
+  --sys-on-surface-variant: #275D38!important; /* ua dark green --- search filters circle hover when off ie. to turn on, heading font in advanced search */
+  --sys-on-tertiary: #F5F5F5!important; /* digital white */
+  --sys-on-tertiary-container: #FFB600!important; /* ua dark yellow */
+  --sys-on-tertiary-fixed: #FFB600!important; /* ua dark yellow */
+  --sys-on-tertiary-fixed-variant: #F2CD00!important; /* ua gold */
+  --sys-outline: #848580!important; /* dark grey used in the quad --- resource font colour in search results, border around selected item in drop-down menu, icon colour in my account */
+  --sys-outline-variant: #dddddd!important; /* basic grey --- border around horizontal filter buttons, hr in full display except for very top */
+  --sys-primary: #275D38!important; /* ua dark green --- font of all links, most icons, some borders, background of place hold button, border of loans,holds+requests,fees boxes in my account */
+  --sys-primary-container: #dddddd!important; /* basic grey --- background of alert box (full display page, chapters of this book section, 'please note that this is not necessarily a complete list of chapters'), hover background of arrows in browse similar, hover background of circle in filters when on ie. to turn off  */
+  --sys-primary-fixed: #275D38!important; /* ua dark green */
+  --sys-primary-fixed-dim: #F2CD00!important; /* ua gold --- background of 'signed in as' */
   --sys-scrim: #2b292a!important; /* black font */
-  --sys-secondary: #007A33!important; /*UA light green */
-  --sys-secondary-container: #dddddd!important; /* basic grey */   /* background of selected drop-down menu item */
-  --sys-secondary-fixed: #007A33!important; /*UA light green */
-  --sys-secondary-fixed-dim: #6CC24A!important; /*UA lightest green */
-  --sys-shadow: #0D1C12!important; /*UAL dark mode background */
+  --sys-secondary: #007A33!important; /* ua green */
+  --sys-secondary-container: #dddddd!important; /* basic grey --- background of selected drop-down menu item */
+  --sys-secondary-fixed: #007A33!important; /* ua green */
+  --sys-secondary-fixed-dim: #6CC24A!important; /* ua light green */
+  --sys-shadow: #2b292a!important; /* black font */
   --sys-surface: #F5F5F5!important; /* digital white */
-  --sys-surface-bright: #F5F5F5!important; /* bright white */
+  --sys-surface-bright: #F5F5F5!important; /* digital white */
   --sys-surface-container: #F5F5F5!important; /* digital white */
   --sys-surface-container-high: #F5F5F5!important; /* digital white */
   --sys-surface-container-highest: #F5F5F5!important; /* digital white */
-  --sys-surface-container-low: #FFFFFF!important; /* bright white */  /* background of request options and horizontal line on full display page */
+  --sys-surface-container-low: #FFFFFF!important; /* bright white --- background of request options and horizontal line on full display page */
   --sys-surface-container-lowest: #F5F5F5!important; /* digital white */
-  --sys-surface-dim: #dddddd!important; /* light grey */
-  --sys-surface-tint: #dddddd!important; /*UA green */
-  --sys-surface-variant: #dddddd!important; /* basic grey */  /* background of filter toggles when off */
-  --sys-tertiary: #F2CD00!important; 
-  --sys-tertiary-container: #F2CD00!important;
-  --sys-tertiary-fixed: #F2CD00!important;
-  --sys-tertiary-fixed-dim: #FFB600!important;   }
+  --sys-surface-dim: #dddddd!important; /* basic grey */
+  --sys-surface-tint: #dddddd!important; /* basic grey */
+  --sys-surface-variant: #dddddd!important; /* basic grey --- background of filter toggles when off */
+  --sys-tertiary: #F2CD00!important; /* ua gold */
+  --sys-tertiary-container: #F2CD00!important; /* ua gold */
+  --sys-tertiary-fixed: #F2CD00!important; /* ua gold */
+  --sys-tertiary-fixed-dim: #FFB600!important; /* ua dark yellow */   }
 
-/* overriding root with UA colours */
+/* overriding root with ua colours */
 :root {
   --darkText: #2b292a!important; /* black font */
   --lightText: #848580!important; /* dark grey used in the quad */
   --whiteText: #F5F5F5!important; /* digital white */
-  --valid: #007A33!important; /*UA light green */
-  --validDark: #275D38!important; /*UA green */
+  --valid: #007A33!important; /* ua green */
+  --validDark: #275D38!important; /* ua dark green */
   --disableText: #dddddd!important; /* basic grey */
-  --validBG: #6CC24A!important; /*UA lightest green */
-  --intermediate: #F68D2E!important; /*UA orange */
-  --whiteBG: #F5F5F5!important; /* digital white */   /* entire page background inlcuding navbar */
-  --notice: #7BA4DB!important; /* UA periwinkle */
+  --validBG: #6CC24A!important; /* ua light green */
+  --intermediate: #F68D2E!important; /* ua orange */
+  --whiteBG: #F5F5F5!important; /* digital white --- entire page background inlcuding navbar */
+  --notice: #7BA4DB!important; /* ua blue */
   --dark : #2b292a!important; /* black font */
   --darkBGWithOpacity: rgba(46, 46, 39, 0.8);
   --blackBGWithOpacity: rgba(0, 0, 0, 0.85);
   --divider: #848580!important; /* dark grey used in the quad */
   --switchTrackColor: #dddddd!important; /* basic grey */
-  --border: #dddddd!important; /* basic grey */  /* all borders (search boxes, hr under search boxes, boxes around item info and location info on full display page) */
+  --border: #dddddd!important; /* basic grey --- all borders (search boxes, hr under search boxes, boxes around item info and location info on full display page) */
   --scrollBar: #dddddd!important; /* basic grey */
-  --lightBG: #F5F5F5!important; /* digital white */ /* background of online access links, number and header in search results, location area on full display page */
-  --darkBG: #dddddd!important; /* basic grey */  /* header of locations box on full display page */
+  --lightBG: #F5F5F5!important; /* digital white --- background of online access links, number and header in search results, location area on full display page */
+  --darkBG: #dddddd!important; /* basic grey --- header of locations box on full display page */
   --searchBarBG: #F5F5F5!important; /* digital white */
   --checkboxBorder:  #848580!important; /* dark grey used in the quad */
   --neutralBG: #F5F5F5!important; /* digital white */
