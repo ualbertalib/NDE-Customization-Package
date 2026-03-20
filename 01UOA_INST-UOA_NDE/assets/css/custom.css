@@ -1,46 +1,27 @@
 
-body, nde-full-display-navigation, .filters-container, .quick-filters, .side-nav-filters-actions, .filters-side-bar-content, .search-results-wrapper nde-search-results-top-bar{
-  background-color: #f5f5f5 !important;
-}
-nde-logo {
-  display: none;
-}
-[data-qa="link-to-newspaper-search"] {
-  display: none;
-}
+nde-logo {  display: none; }
+[data-qa="link-to-newspaper-search"] { display: none; }
 
 .ual-top-banner {background-color:#275D38; height:70px;  width:100%; padding:15px 8px;}
 .ual-top-banner img {float:left; height:40px;}
 .ual-inner {width: clamp(1088px, 85%, 1368px); margin: auto;}
 .ual-library-tag {float:left; color:#F2CD00; font-size:1.8rem; text-decoration: none; margin:7px 0 0 35px; font-weight: 200;}
 
-.main-landing-page .about .about-content .about-text {
-  gap:0.3rem;
-}
-.container .custom-search-bar-container h2 {
-  display: none;
-}
-.container .custom-search-bar-container{
-  height:10rem !important;
-}
-.container .top-bar-background-image{
-  background-image: none !important;
-}
-.container nde-top-bar{
-    background-color: #f5f5f5 !important;
-}
-.home-page-container {
-    margin-top: 0 !important;
-}
-.custom-search-bar-container .background-overlay {
-    display: none;
-}
-.search-bar-container .advanced-search-button.advanced-search-btn-home-page {
-  color: #296b2b !important;
-}
-.links-block .separated-block-item:after {
-    transform: rotate(0deg);
-  }
+.main-landing-page .about .about-content .about-text { gap:0.3rem; }
+
+.container .custom-search-bar-container h2 {  display: none; }
+
+.container .custom-search-bar-container {  height:10rem !important; }
+
+.container .top-bar-background-image { background-image: none !important; }
+
+.home-page-container { margin-top: 0 !important; }
+
+.custom-search-bar-container .background-overlay { display: none; }
+
+.search-bar-container .advanced-search-button.advanced-search-btn-home-page { color: #296b2b !important; }
+
+.links-block .separated-block-item:after { transform: rotate(0deg);  }
 
  /* chat widget styles */ 
 .s-lch-widget-float.open{
@@ -152,7 +133,7 @@ nde-logo {
 /* making top navbar and background of online access options bright white */
 .container .top-bar, .view-it-card-container {  background-color: #FFFFFF!important; }
 
-/* overriding green color theme with UA colours */
+/* overriding custom-color-theme-green.css (under assets/color-themes) with UA colours */
 html {
   --sys-background: #FFFFFF!important; /* bright white */  /* search box background!! */
   --sys-error: #e56a54!important; /* UA coral */
