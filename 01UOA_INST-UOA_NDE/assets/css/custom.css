@@ -168,14 +168,14 @@ html {
   --sys-on-tertiary-fixed: #FFB600!important; /* ua dark yellow */
   --sys-on-tertiary-fixed-variant: #F2CD00!important; /* ua gold */
   --sys-outline: #6c757d!important; /* dark grey --- all icons, resource type/peer review labels, border around selected item in drop-down menu, x in search bar */
-  --sys-outline-variant: #ced4da!important; /* grey --- border around horizontal filter buttons, hr in full display except for very top */
+  --sys-outline-variant: #D2D2D2!important; /* grey --- border around horizontal filter buttons, hr in full display except for very top */
   --sys-primary: #275D38!important; /* ua dark green --- font of all links, some icons, some borders, background of place hold button, border of loans,holds+requests,fees boxes in my account, background of logged in user icon circle */
-  --sys-primary-container: #ced4da!important; /* grey --- background of alert box (full display page, chapters of this book section, 'please note that this is not necessarily a complete list of chapters'), hover background of arrows in browse similar, hover background of circle in filters when on ie. to turn off  */
+  --sys-primary-container: #D2D2D2!important; /* grey --- background of alert box (full display page, chapters of this book section, 'please note that this is not necessarily a complete list of chapters'), hover background of arrows in browse similar, hover background of circle in filters when on ie. to turn off  */
   --sys-primary-fixed: #275D38!important; /* ua dark green */
   --sys-primary-fixed-dim: #F2CD00!important; /* ua gold --- background of 'signed in as' */
   --sys-scrim: #2b292a!important; /* black font */
   --sys-secondary: #007A33!important; /* ua green */
-  --sys-secondary-container: #ced4da!important; /* grey --- background of selected drop-down menu item */
+  --sys-secondary-container: #D2D2D2!important; /* grey --- background of selected drop-down menu item */
   --sys-secondary-fixed: #007A33!important; /* ua green */
   --sys-secondary-fixed-dim: #6CC24A!important; /* ua light green */
   --sys-shadow: #2b292a!important; /* black font */
@@ -186,9 +186,9 @@ html {
   --sys-surface-container-highest: #F5F5F5!important; /* digital white */
   --sys-surface-container-low: #FFFFFF!important; /* bright white --- background of request options and horizontal line on full display page */
   --sys-surface-container-lowest: #F5F5F5!important; /* digital white */
-  --sys-surface-dim: #ced4da!important; /* grey */
-  --sys-surface-tint: #ced4da!important; /* grey */
-  --sys-surface-variant: #ced4da!important; /* grey --- background of filter toggles when off */
+  --sys-surface-dim: #D2D2D2!important; /* grey */
+  --sys-surface-tint: #D2D2D2!important; /* grey */
+  --sys-surface-variant: #D2D2D2!important; /* grey --- background of filter toggles when off */
   --sys-tertiary: #F2CD00!important; /* ua gold */
   --sys-tertiary-container: #F2CD00!important; /* ua gold */
   --sys-tertiary-fixed: #F2CD00!important; /* ua gold */
@@ -201,7 +201,7 @@ html {
   --whiteText: #F5F5F5!important; /* digital white */
   --valid: #007A33!important; /* ua green */
   --validDark: #275D38!important; /* ua dark green */
-  --disableText: #ced4da!important; /* grey */
+  --disableText: #D2D2D2!important; /* grey */
   --validBG: #6CC24A!important; /* ua light green */
   --intermediate: #F68D2E!important; /* ua orange */
   --whiteBG: #F5F5F5!important; /* digital white --- entire page background inlcuding navbar */
@@ -210,11 +210,11 @@ html {
   --darkBGWithOpacity: rgba(46, 46, 39, 0.8);
   --blackBGWithOpacity: rgba(0, 0, 0, 0.85);
   --divider: #6c757d!important; /* dark grey */
-  --switchTrackColor: #ced4da!important; /* grey */
-  --border: #ced4da!important; /* grey --- all borders (search boxes, hr under search boxes, boxes around item info and location info on full display page) */
-  --scrollBar: #ced4da!important; /* grey */
+  --switchTrackColor: #D2D2D2!important; /* grey */
+  --border: #D2D2D2!important; /* grey --- all borders (search boxes, hr under search boxes, boxes around item info and location info on full display page) */
+  --scrollBar: #D2D2D2!important; /* grey */
   --lightBG: #F5F5F5!important; /* digital white --- background of online access links, number and header in search results, location area on full display page */
-  --darkBG: #ced4da!important; /* grey --- header of locations box on full display page */
+  --darkBG: #D2D2D2!important; /* grey --- header of locations box on full display page */
   --searchBarBG: #F5F5F5!important; /* digital white */
   --checkboxBorder:  #6c757d!important; /* dark grey */
   --neutralBG: #F5F5F5!important; /* digital white */
