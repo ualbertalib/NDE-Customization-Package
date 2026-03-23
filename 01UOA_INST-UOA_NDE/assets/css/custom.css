@@ -1,6 +1,9 @@
+
+/*
 mat-tooltip-component {
   display: none !important;
 }
+*/
 nde-logo {  display: none; }
 [data-qa="link-to-newspaper-search"] { display: none; }
 
@@ -136,7 +139,7 @@ nde-logo {  display: none; }
 .info-alert-background { background-color: #7BA4DB; }
 
 /* overriding default 55 with 65 to not cut off green banner in large screens */
-@media only screen and (min-width: 1920px) {  .cdk-overlay-container:has(.main-menu-dialog) { top: 65px;   } }
+@media only screen and (min-width: 1920px) {  .cdk-overlay-container:has(.main-menu-dialog) { top: 70px!important;   } }
 
 /*  hiding tooltips when main menu is open since text is included as subtitle */
 .cdk-overlay-container:has(.main-menu-dialog) .mat-mdc-tooltip { display: none!important; }
@@ -207,9 +210,7 @@ html { --mdc-plain-tooltip-supporting-text-color:#2b292a!important; }
   --sys-tertiary-container: #F2CD00!important; /* ua gold */
   --sys-tertiary-fixed: #F2CD00!important; /* ua gold */
   --sys-tertiary-fixed-dim: #FFB600!important; /* ua dark yellow */  
-
 /* overriding root with ua colours */
-
   --darkText: #2b292a!important; /* black font */
   --lightText: #6c757d!important; /* dark grey */
   --whiteText: #F5F5F5!important; /* digital white */
