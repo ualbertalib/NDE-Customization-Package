@@ -130,20 +130,32 @@ nde-logo {  display: none; }
     border-radius: 2px;
 }
 
+/* changing background of info alert to ua blue */
+.info-alert-background { background-color: #7BA4DB; }
+
+/* overriding default 55 with 65 to not cut off green banner in large screens */
+@media only screen and (min-width: 1920px) {  .cdk-overlay-container:has(.main-menu-dialog) { top: 65px;   } }
+
+/*  hiding tooltips when main menu is open since text is included as subtitle */
+.cdk-overlay-container:has(.main-menu-dialog) .mat-mdc-tooltip { display: none!important; }
+
+/*  removing padding before online access links on full display page */
+button.view-it-card-no-license-container {  padding-inline-start: 0px; }
+
 /*  hiding bright white hr near top of full display page */
 nde-full-display-navigation {  border-bottom: transparent!important; }
 
 /*  hiding outline of selected drop-down menu items */
 .nde-overrides .mat-mdc-option.mat-mdc-option-active.mdc-list-item {  outline: transparent!important;  }
 
-/* making tooltip font colour black */
-html { --mdc-plain-tooltip-supporting-text-color:#2b292a!important; }
-
 /* making top navbar and background of online access options bright white */
 .container .top-bar, .view-it-card-container {  background-color: #FFFFFF!important; }
 
+/* making tooltip font colour black */
+html { --mdc-plain-tooltip-supporting-text-color:#2b292a!important; }
+
 /* overriding custom-color-theme-green.css (under assets/color-themes) with ua colours */
-html {
+:root {
   --sys-background: #FFFFFF!important; /* bright white -- search box background */
   --sys-error: #e56a54!important; /* ua red */
   --sys-error-container: #e56a54!important; /* ua red */
@@ -192,10 +204,10 @@ html {
   --sys-tertiary: #F2CD00!important; /* ua gold */
   --sys-tertiary-container: #F2CD00!important; /* ua gold */
   --sys-tertiary-fixed: #F2CD00!important; /* ua gold */
-  --sys-tertiary-fixed-dim: #FFB600!important; /* ua dark yellow */   }
+  --sys-tertiary-fixed-dim: #FFB600!important; /* ua dark yellow */  
 
 /* overriding root with ua colours */
-:root {
+
   --darkText: #2b292a!important; /* black font */
   --lightText: #6c757d!important; /* dark grey */
   --whiteText: #F5F5F5!important; /* digital white */
