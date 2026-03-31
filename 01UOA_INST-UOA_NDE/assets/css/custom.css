@@ -136,11 +136,12 @@ nde-logo {  display: none; }
 nde-account .mat-icon svg path { fill: #007A33!important; }
 .account-menu-container ul { color: #2b292a; }
 
-/* changing main icons on full display page to ua green */
-nde-full-display-container .mat-icon[data-mat-icon-name="Share"] svg path { fill: #007A33!important; }
-nde-full-display-container .mat-icon[data-mat-icon-name="Bookmark"] svg path { fill: #007A33!important; }
-nde-full-display-container .mat-icon[data-mat-icon-name="Export"] svg path { fill: #007A33!important; }
-nde-full-display-container .mat-icon[data-mat-icon-name="Citation"] svg path { fill: #007A33!important; }
+/* specific icon colour changes - removing nde-full-display-container to change them in results as well */
+.mat-icon[data-mat-icon-name="Share"] svg path { fill: #007A33!important; }
+.mat-icon[data-mat-icon-name="Bookmark"] svg path { fill: #007A33!important; }
+.mat-icon[data-mat-icon-name="Export"] svg path { fill: #007A33!important; }
+.mat-icon[data-mat-icon-name="Citation"] svg path { fill: #007A33!important; }
+.mat-icon[data-mat-icon-name="Exclude"] svg path { fill: #e56a54!important; }  /* exclude in filters - ua red */
 
 /* changing background of info alert to ua blue and icon to black */
 .info-alert-background { background-color: #7BA4DB!important; }
@@ -166,6 +167,9 @@ nde-full-display-navigation {  border-bottom: transparent!important; }
 
 /* making tooltip font colour black */
 html { --mdc-plain-tooltip-supporting-text-color:#2b292a!important; }
+
+/* additional colour changes */
+.dropdown-box { background-color: #f5f5f5!important; }
 
 /* overriding custom-color-theme-green.css (under assets/color-themes) with ua colours */
 :root {
