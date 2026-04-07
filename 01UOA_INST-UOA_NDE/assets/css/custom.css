@@ -132,6 +132,13 @@ nde-logo {  display: none; }
     border-radius: 2px;
 }
 
+
+/* hiding title level request links at item level on full display page */
+nde-location-items-requests { display: none; }
+
+/* hiding vertical line after book and article radio buttons on ILL request form */
+.blank-request .divider { display: none; }
+
 /* changing icon colours in my account */
 nde-account .mat-icon svg path { fill: #007A33!important; }
 .account-menu-container ul { color: #2b292a; }
