@@ -135,6 +135,9 @@ nde-logo {  display: none; }
 .no-requests { border-radius: 7px;  background-color:#f5f5f5!important;  }
 nde-requests .no-requests  { display: none; }
 
+/* journal search font - ua dark green */
+.title[data-qa="journal-search-page-title"] { color:#275D38!important; }
+
 /* hiding title level request links at item level on full display page */
 nde-location-items-requests { display: none; }
 
