@@ -135,6 +135,10 @@ nde-logo {  display: none; }
 .no-requests { border-radius: 7px;  background-color:#f5f5f5!important;  }
 nde-requests .no-requests  { display: none; }
 
+
+/* newspaper search > changing “search within newspapers” font to not be bold */
+[data-qa="npsearch-main"] .title { font-weight: normal!important; }
+
 /* title font colour for different search pages - ua dark green */
 .title[data-qa="journal-search-page-title"], .title[data-qa="browse-search-page-title"], .title[data-qa="newspaper-search-page-title"]  { color:#275D38!important; }
 
