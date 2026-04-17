@@ -83,7 +83,8 @@ const allowedTexts = [
     "Theses and Dissertations subject guide",
     "Inventory list of the Ivo Andrić archives, Accession 96-165",
     "Guide thématique sur les thèses et mémoires",
-    "Afficher la notice de la source"
+    "Afficher la notice de la source",
+    "Orientation Guide"
 ];
 
 const filterLinks = () => {
