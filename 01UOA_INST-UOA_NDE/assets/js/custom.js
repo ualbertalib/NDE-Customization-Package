@@ -72,76 +72,73 @@
     })();
 
 
-    // =========================================================================
-    // RECORD LINKS FILTER
-    // On full record pages, hides any links in the #links container that are
-    // not in the allowedTexts list. Displays a fallback message if no
-    // permitted links are found.
-    // =========================================================================
-    const allowedTexts = [
-        "Display Source Record",
-        "Theses and Dissertations subject guide",
-        "Inventory list of the Ivo Andrić archives, Accession 96-165",
-        "Guide thématique sur les thèses et mémoires",
-        "Afficher la notice de la source"
-    ];
+// =========================================================================
+// RECORD LINKS FILTER
+// On full record pages, hides any links in the NDE links container that are
+// not in the allowedTexts list. Displays a fallback message if no
+// permitted links are found.
+// =========================================================================
+const allowedTexts = [
+    "Display Source Record",
+    "Theses and Dissertations subject guide",
+    "Inventory list of the Ivo Andrić archives, Accession 96-165",
+    "Guide thématique sur les thèses et mémoires",
+    "Afficher la notice de la source"
+];
 
-    const filterLinks = () => {
-        const linksContainer = document.querySelector("#links");
-        if (!linksContainer) return;
+const filterLinks = () => {
+    const linksContainer = document.querySelector('[data-qa="full_display_links_online_links"]');
+    if (!linksContainer) return;
 
-        const links = linksContainer.querySelectorAll("a");
-        let visibleCount = 0;
+    const links = linksContainer.querySelectorAll("a");
+    let visibleCount = 0;
 
-        links.forEach(link => {
-            // Use the inner span text if present, otherwise fall back to link text
-            const span = link.querySelector("span");
-            const text = span ? span.textContent.trim() : link.textContent.trim();
+    links.forEach(link => {
+        // Use the inner span text if present, otherwise fall back to full link text
+        // (mat-icon contains only SVG, so textContent is safe to use directly)
+        const span = link.querySelector("span");
+        const text = span ? span.textContent.trim() : link.textContent.trim();
 
-            if (allowedTexts.includes(text)) {
-                link.style.display = "";
-                visibleCount++;
-            } else {
-                link.style.display = "none";
-            }
-        });
-
-        // Show or remove the fallback message depending on visible link count
-        const existingMessage = document.querySelector("#no-links-message");
-        if (visibleCount === 0) {
-            if (!existingMessage) {
-                const message = document.createElement("p");
-                message.id = "no-links-message";
-                message.textContent = "No links are available for this record.";
-                message.style.marginTop = "1em";
-                linksContainer.appendChild(message);
-            }
+        if (allowedTexts.includes(text)) {
+            link.style.display = "";
+            visibleCount++;
         } else {
-            if (existingMessage) existingMessage.remove();
+            link.style.display = "none";
         }
-    };
+    });
 
-    // Poll briefly after DOM changes to catch links rendered slightly after
-    // the mutation fires (Angular may render children in multiple passes)
-    const waitForLinks = () => {
+    // Show or remove the fallback message depending on visible link count
+    const existingMessage = document.querySelector("#no-links-message");
+    if (visibleCount === 0) {
+        if (!existingMessage) {
+            const message = document.createElement("p");
+            message.id = "no-links-message";
+            message.textContent = "No links are available for this record.";
+            message.style.marginTop = "1em";
+            linksContainer.appendChild(message);
+        }
+    } else {
+        if (existingMessage) existingMessage.remove();
+    }
+};
+
+const waitForLinks = () => {
+    filterLinks();
+    let attempts = 0;
+    const interval = setInterval(() => {
+        attempts++;
         filterLinks();
-        let attempts = 0;
-        const interval = setInterval(() => {
-            attempts++;
-            filterLinks();
-            const hasLinks = document.querySelector("#links a");
-            if (hasLinks || attempts >= 10) {
-                clearInterval(interval);
-            }
-        }, 300);
-    };
+        const hasLinks = document.querySelector('[data-qa="full_display_links_online_links"] a');
+        if (hasLinks || attempts >= 10) {
+            clearInterval(interval);
+        }
+    }, 300);
+};
 
-    // Re-run the filter whenever the DOM changes (e.g. navigating to a new record)
-    const linksObserver = new MutationObserver(waitForLinks);
-    linksObserver.observe(document.body, { childList: true, subtree: true });
+const linksObserver = new MutationObserver(waitForLinks);
+linksObserver.observe(document.body, { childList: true, subtree: true });
 
-    // Run immediately in case the links are already present on page load
-    waitForLinks();
+waitForLinks();
 
 
     // =========================================================================
