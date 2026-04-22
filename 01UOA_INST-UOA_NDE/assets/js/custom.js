@@ -84,7 +84,7 @@ const allowedTexts = [
     "Inventory list of the Ivo Andrić archives, Accession 96-165",
     "Guide thématique sur les thèses et mémoires",
     "Afficher la notice de la source",
-    "Orientation Guide"
+    "Orientation guide"
 ];
 
 const filterLinks = () => {
@@ -110,7 +110,7 @@ const filterLinks = () => {
 
     // Show or remove the fallback message depending on visible link count
     const existingMessage = document.querySelector("#no-links-message");
-    if (visibleCount === 0) {
+    if (links.length > 0 && visibleCount === 0) {
         if (!existingMessage) {
             const message = document.createElement("p");
             message.id = "no-links-message";
