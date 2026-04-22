@@ -25,7 +25,7 @@ nde-logo { display: none; }
 
 .accordion-header, nde-location-items-container { background-color: #fff; }
 
-custom-search-bar-container h1 { display: none; }
+.custom-search-bar-container h1 { display: none; }
 
  /* chat widget styles */ 
 .s-lch-widget-float.open{
