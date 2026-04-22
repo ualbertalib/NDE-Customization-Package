@@ -17,15 +17,13 @@ nde-logo { display: none; }
 
 .home-page-container { margin-top: 0 !important; }
 
-.custom-search-bar-container .background-overlay { display: none; }
+.custom-search-bar-container .background-overlay, .custom-search-bar-container h1 { display: none !important; }
 
 .search-bar-container .advanced-search-button.advanced-search-btn-home-page { color: #275D38 !important; }
 
 .links-block .separated-block-item:after { transform: rotate(0deg);  }
 
 .accordion-header, nde-location-items-container { background-color: #fff; }
-
-.custom-search-bar-container h1 { display: none; }
 
  /* chat widget styles */ 
 .s-lch-widget-float.open{
