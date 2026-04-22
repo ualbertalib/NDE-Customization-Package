@@ -1,15 +1,15 @@
 
-nde-logo {  display: none; }
+nde-logo { display: none; }
 [data-qa="link-to-newspaper-search"] { display: none; }
 
-.ual-top-banner {background-color:#275D38; height:70px;  width:100%; padding:15px 8px;}
-.ual-top-banner img {float:left; height:40px;}
-.ual-inner {width: clamp(1088px, 85%, 1368px); margin: auto;}
-.ual-library-tag {float:left; color:#F2CD00; font-size:1.8rem; text-decoration: none; margin:7px 0 0 35px; font-weight: 200;}
+.ual-top-banner { background-color:#275D38; height:70px;  width:100%; padding:15px 8px;}
+.ual-top-banner img { float:left; height:40px;}
+.ual-inner { width: clamp(1088px, 85%, 1368px); margin: auto;}
+.ual-library-tag { float:left; color:#F2CD00; font-size:1.8rem; text-decoration: none; margin:7px 0 0 35px; font-weight: 200;}
 
 .main-landing-page .about .about-content .about-text { gap:0.3rem; }
 
-.container .custom-search-bar-container h2 {  display: none; }
+.container .custom-search-bar-container h2 { display: none; }
 
 .container .custom-search-bar-container {  height:10rem !important; }
 
@@ -23,7 +23,9 @@ nde-logo {  display: none; }
 
 .links-block .separated-block-item:after { transform: rotate(0deg);  }
 
-.accordion-header, nde-location-items-container {background-color: #fff;}
+.accordion-header, nde-location-items-container { background-color: #fff; }
+
+custom-search-bar-container h1 { display: none; }
 
  /* chat widget styles */ 
 .s-lch-widget-float.open{
