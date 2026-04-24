@@ -138,7 +138,8 @@ nde-logo { display: none; }
 .no-requests { border-radius: 7px;  background-color:#f5f5f5!important;  }
 nde-requests .no-requests  { display: none; }
 
-/* search results and full display - hiding hat icon and PART OF A COURSE */
+/* search results and full display - hiding hat icon and PART OF A COURSE and divider before */
+.mat-divider:has(+ div .mat-icon[data-mat-icon-name="Course-Indicator"]) { display: none; }
 .mat-icon[data-mat-icon-name="Course-Indicator"] ~ span { display: none; }
 .mat-icon[data-mat-icon-name="Course-Indicator"] { display: none; }
 
