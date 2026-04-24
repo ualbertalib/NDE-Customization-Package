@@ -1,11 +1,12 @@
   :root {
   --ll-green: #275D38;
   --ll-green-dark: #1a4228;
-  --ll-green-light: #eaf2ed;
-  --ll-text: #1a1a1a;
+  --ll-green-light: #ffffff; /* changing to bright white for contrast */
+  --ll-text: #2b292a;
   --ll-text-muted: #555;
-  --ll-border: #c3d9c9;
-  --ll-white: #ffffff;
+/* cards on results list want to be these colours until you hard refresh - changing both to digital white */
+  --ll-border: #f5f5f5;
+  --ll-white: #f5f5f5;
 }
 
 a{
