@@ -188,13 +188,12 @@ nde-full-display-navigation {  border-bottom: transparent!important; }
 /*  hiding outline of selected drop-down menu items */
 .nde-overrides .mat-mdc-option.mat-mdc-option-active.mdc-list-item {  outline: transparent!important;  }
 
-/* making top navbar and background of online access options bright white */
-.container .top-bar, .view-it-card-container {  background-color: #FFFFFF!important; }
-
-/* making tooltip font colour black */
-html { --mdc-plain-tooltip-supporting-text-color:#2b292a!important; }
-
-/* additional colour changes */
+/* additional specific colour changes */
+rect { fill:#007A33!important; } /* "full versions list" stacked paper icon */
+.mat-icon[data-mat-icon-name="Available-record-indicator"] circle { fill: #007A33!important; } 
+.container .top-bar { background-color: #FFFFFF!important; } /* top navbar */
+.view-it-card-container { background-color: #FFFFFF!important; } /* online access boxes background */
+html { --mdc-plain-tooltip-supporting-text-color:#2b292a!important; } /* tooltip font */
 .dropdown-box { background-color: #f5f5f5!important; }
 
 /* overriding custom-color-theme-green.css (under assets/color-themes) with ua colours */
@@ -248,6 +247,7 @@ html { --mdc-plain-tooltip-supporting-text-color:#2b292a!important; }
   --sys-tertiary-container: #F2CD00!important; /* ua gold */
   --sys-tertiary-fixed: #F2CD00!important; /* ua gold */
   --sys-tertiary-fixed-dim: #FFB600!important; /* ua dark yellow */  
+
 /* overriding root with ua colours */
   --darkText: #2b292a!important; /* black font */
   --lightText: #6c757d!important; /* dark grey */
