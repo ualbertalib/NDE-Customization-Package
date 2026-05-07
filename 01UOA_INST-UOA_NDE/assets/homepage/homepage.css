@@ -117,7 +117,7 @@ padding-bottom: 0.8rem;
 
 .btn-primary {
   background: var(--ll-green);
-  color: var(--ll-white);
+  color: var(--ll-white) !important;
   border-color: var(--ll-green);
 }
 
