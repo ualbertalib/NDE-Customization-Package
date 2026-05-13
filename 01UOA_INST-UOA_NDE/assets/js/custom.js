@@ -54,11 +54,20 @@
     // =========================================================================
     // LIBCHAT WIDGET
     // Dynamically loads the LibAnswers live chat widget by appending a div
-    // anchor and a script tag to the page body.
+    // anchor and a script tag to the page body. Once the widget renders,
+    // swaps the button image to a mobile-appropriate version on narrow
+    // viewports and keeps it in sync if the viewport is resized.
     // =========================================================================
     (() => {
         const libchatHash = 'baadd67c0b9382719dabca82069083e2e6b6d873103a32cc235ec09ad41f22a5';
         const host = 'ualberta.libanswers.com';
+        const desktopImg = 'https://sites.library.ualberta.ca/wp-content/uploads/2026/05/chat-button-desktop.png';
+        const mobileImg  = 'https://sites.library.ualberta.ca/wp-content/uploads/2026/05/chat-button-mobile.png';
+        const mq = window.matchMedia('(max-width: 768px)');
+
+        const swapChatImg = (img) => {
+            img.src = mq.matches ? mobileImg : desktopImg;
+        };
 
         // Create the div anchor the LibChat script will attach to
         const div = document.createElement('div');
@@ -69,77 +78,88 @@
         const scr = document.createElement('script');
         scr.src = `https://${host}/load_chat.php?hash=${libchatHash}`;
         document.body.appendChild(scr);
+
+        // Wait for the widget to render, then set the image and watch for resizes
+        const chatObserver = new MutationObserver(() => {
+            const img = document.querySelector('.s-lch-widget-float-btn img');
+            if (!img) return;
+            chatObserver.disconnect();
+            swapChatImg(img);
+            mq.addEventListener('change', () => swapChatImg(img));
+        });
+
+        chatObserver.observe(document.body, { childList: true, subtree: true });
     })();
 
 
-// =========================================================================
-// RECORD LINKS FILTER
-// On full record pages, hides any links in the NDE links container that are
-// not in the allowedTexts list. Displays a fallback message if no
-// permitted links are found.
-// =========================================================================
-const allowedTexts = [
-    "Display Source Record",
-    "Theses and Dissertations subject guide",
-    "Inventory list of the Ivo Andrić archives, Accession 96-165",
-    "Guide thématique sur les thèses et mémoires",
-    "Afficher la notice de la source",
-    "Orientation guide"
-];
+    // =========================================================================
+    // RECORD LINKS FILTER
+    // On full record pages, hides any links in the NDE links container that are
+    // not in the allowedTexts list. Displays a fallback message if no
+    // permitted links are found.
+    // =========================================================================
+    const allowedTexts = [
+        "Display Source Record",
+        "Theses and Dissertations subject guide",
+        "Inventory list of the Ivo Andrić archives, Accession 96-165",
+        "Guide thématique sur les thèses et mémoires",
+        "Afficher la notice de la source",
+        "Orientation guide"
+    ];
 
-const filterLinks = () => {
-    const linksContainer = document.querySelector('[data-qa="full_display_links_online_links"]');
-    if (!linksContainer) return;
+    const filterLinks = () => {
+        const linksContainer = document.querySelector('[data-qa="full_display_links_online_links"]');
+        if (!linksContainer) return;
 
-    const links = linksContainer.querySelectorAll("a");
-    let visibleCount = 0;
+        const links = linksContainer.querySelectorAll("a");
+        let visibleCount = 0;
 
-    links.forEach(link => {
-        // Use the inner span text if present, otherwise fall back to full link text
-        // (mat-icon contains only SVG, so textContent is safe to use directly)
-        const span = link.querySelector("span");
-        const text = span ? span.textContent.trim() : link.textContent.trim();
+        links.forEach(link => {
+            // Use the inner span text if present, otherwise fall back to full link text
+            // (mat-icon contains only SVG, so textContent is safe to use directly)
+            const span = link.querySelector("span");
+            const text = span ? span.textContent.trim() : link.textContent.trim();
 
-        if (allowedTexts.includes(text)) {
-            link.style.display = "";
-            visibleCount++;
+            if (allowedTexts.includes(text)) {
+                link.style.display = "";
+                visibleCount++;
+            } else {
+                link.style.display = "none";
+            }
+        });
+
+        // Show or remove the fallback message depending on visible link count
+        const existingMessage = document.querySelector("#no-links-message");
+        if (links.length > 0 && visibleCount === 0) {
+            if (!existingMessage) {
+                const message = document.createElement("p");
+                message.id = "no-links-message";
+                message.textContent = "No links are available for this record.";
+                message.style.marginTop = "1em";
+                linksContainer.appendChild(message);
+            }
         } else {
-            link.style.display = "none";
+            if (existingMessage) existingMessage.remove();
         }
-    });
+    };
 
-    // Show or remove the fallback message depending on visible link count
-    const existingMessage = document.querySelector("#no-links-message");
-    if (links.length > 0 && visibleCount === 0) {
-        if (!existingMessage) {
-            const message = document.createElement("p");
-            message.id = "no-links-message";
-            message.textContent = "No links are available for this record.";
-            message.style.marginTop = "1em";
-            linksContainer.appendChild(message);
-        }
-    } else {
-        if (existingMessage) existingMessage.remove();
-    }
-};
-
-const waitForLinks = () => {
-    filterLinks();
-    let attempts = 0;
-    const interval = setInterval(() => {
-        attempts++;
+    const waitForLinks = () => {
         filterLinks();
-        const hasLinks = document.querySelector('[data-qa="full_display_links_online_links"] a');
-        if (hasLinks || attempts >= 10) {
-            clearInterval(interval);
-        }
-    }, 300);
-};
+        let attempts = 0;
+        const interval = setInterval(() => {
+            attempts++;
+            filterLinks();
+            const hasLinks = document.querySelector('[data-qa="full_display_links_online_links"] a');
+            if (hasLinks || attempts >= 10) {
+                clearInterval(interval);
+            }
+        }, 300);
+    };
 
-const linksObserver = new MutationObserver(waitForLinks);
-linksObserver.observe(document.body, { childList: true, subtree: true });
+    const linksObserver = new MutationObserver(waitForLinks);
+    linksObserver.observe(document.body, { childList: true, subtree: true });
 
-waitForLinks();
+    waitForLinks();
 
 
     // =========================================================================
