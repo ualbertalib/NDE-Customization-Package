@@ -66,7 +66,15 @@
         const mq = window.matchMedia('(max-width: 768px)');
 
         const swapChatImg = (img) => {
-            img.src = mq.matches ? mobileImg : desktopImg;
+            if (mq.matches) {
+                img.src = mobileImg;
+                img.style.width  = '54px';
+                img.style.height = '54px';
+            } else {
+                img.src = desktopImg;
+                img.style.width  = '';
+                img.style.height = '';
+            }
         };
 
         // Create the div anchor the LibChat script will attach to
@@ -79,13 +87,21 @@
         scr.src = `https://${host}/load_chat.php?hash=${libchatHash}`;
         document.body.appendChild(scr);
 
-        // Wait for the widget to render, then set the image and watch for resizes
+        // Wait for the widget to render, then set the image and watch for resizes.
+        // After swapping, a second MutationObserver watches the img's src attribute
+        // so the swap re-applies if the widget script resets it (common on mobile).
         const chatObserver = new MutationObserver(() => {
             const img = document.querySelector('.s-lch-widget-float-btn img');
             if (!img) return;
             chatObserver.disconnect();
             swapChatImg(img);
             mq.addEventListener('change', () => swapChatImg(img));
+
+            const imgObserver = new MutationObserver(() => {
+                const expected = mq.matches ? mobileImg : desktopImg;
+                if (img.src !== expected) swapChatImg(img);
+            });
+            imgObserver.observe(img, { attributes: true, attributeFilter: ['src'] });
         });
 
         chatObserver.observe(document.body, { childList: true, subtree: true });
@@ -208,3 +224,4 @@ document.addEventListener('DOMContentLoaded', function () {
     noscript.innerHTML = '<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MX43PRW2" height="0" width="0" style="display:none;visibility:hidden"></iframe>';
     document.body.insertBefore(noscript, document.body.firstChild);
 });
+
