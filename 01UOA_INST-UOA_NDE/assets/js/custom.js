@@ -57,6 +57,12 @@
     // anchor and a script tag to the page body. Once the widget renders,
     // swaps the button image to a mobile-appropriate version on narrow
     // viewports and keeps it in sync if the viewport is resized.
+    //
+    // A CSS rule is injected early to cap the image width and prevent the
+    // unscaled 2x PNG from causing horizontal overflow before JS runs.
+    // The chatObserver stays connected (does not disconnect) to handle cases
+    // where the widget re-renders the img element on mobile. A second observer
+    // watches the src attribute for resets by the LibChat script itself.
     // =========================================================================
     (() => {
         const libchatHash = 'baadd67c0b9382719dabca82069083e2e6b6d873103a32cc235ec09ad41f22a5';
@@ -65,15 +71,22 @@
         const mobileImg  = 'https://sites.library.ualberta.ca/wp-content/uploads/2026/05/chat-button-mobile.png';
         const mq = window.matchMedia('(max-width: 768px)');
 
+        // Inject early to prevent overflow before JS swap runs
+        const chatStyle = document.createElement('style');
+        chatStyle.textContent = '.s-lch-widget-float-btn img { max-width: 100vw; box-sizing: border-box; }';
+        document.head.appendChild(chatStyle);
+
         const swapChatImg = (img) => {
             if (mq.matches) {
                 img.src = mobileImg;
-                img.style.width  = '54px';
-                img.style.height = '54px';
+                img.style.setProperty('width',     '54px', 'important');
+                img.style.setProperty('height',    '54px', 'important');
+                img.style.setProperty('max-width', '54px', 'important');
             } else {
                 img.src = desktopImg;
-                img.style.width  = '';
-                img.style.height = '';
+                img.style.removeProperty('width');
+                img.style.removeProperty('height');
+                img.style.removeProperty('max-width');
             }
         };
 
@@ -87,21 +100,21 @@
         scr.src = `https://${host}/load_chat.php?hash=${libchatHash}`;
         document.body.appendChild(scr);
 
-        // Wait for the widget to render, then set the image and watch for resizes.
-        // After swapping, a second MutationObserver watches the img's src attribute
-        // so the swap re-applies if the widget script resets it (common on mobile).
+        let imgObserver = null;
         const chatObserver = new MutationObserver(() => {
             const img = document.querySelector('.s-lch-widget-float-btn img');
             if (!img) return;
-            chatObserver.disconnect();
             swapChatImg(img);
-            mq.addEventListener('change', () => swapChatImg(img));
 
-            const imgObserver = new MutationObserver(() => {
-                const expected = mq.matches ? mobileImg : desktopImg;
-                if (img.src !== expected) swapChatImg(img);
-            });
-            imgObserver.observe(img, { attributes: true, attributeFilter: ['src'] });
+            // Set up src-attribute watcher and resize listener once only
+            if (!imgObserver) {
+                mq.addEventListener('change', () => swapChatImg(img));
+                imgObserver = new MutationObserver(() => {
+                    const expected = mq.matches ? mobileImg : desktopImg;
+                    if (img.getAttribute('src') !== expected) swapChatImg(img);
+                });
+                imgObserver.observe(img, { attributes: true, attributeFilter: ['src'] });
+            }
         });
 
         chatObserver.observe(document.body, { childList: true, subtree: true });
@@ -224,4 +237,3 @@ document.addEventListener('DOMContentLoaded', function () {
     noscript.innerHTML = '<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MX43PRW2" height="0" width="0" style="display:none;visibility:hidden"></iframe>';
     document.body.insertBefore(noscript, document.body.firstChild);
 });
-
