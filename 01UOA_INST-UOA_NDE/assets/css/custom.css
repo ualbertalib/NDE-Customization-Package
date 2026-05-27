@@ -120,6 +120,11 @@ nde-full-display-navigation {  border-bottom: transparent!important; }
   --mat-mdc-button-persistent-ripple-color: transparent;
 }
 
+/*  making the title bigger in full display */
+.search-result-item.full-display {
+  --sys-body-large: 400 1.25rem/1.5rem "Noto Sans Display", sans-serif;
+}
+
 /* additional specific colour changes */
 rect { fill:#007A33!important; } /* "full versions list" stacked paper icon */
 .mat-icon[data-mat-icon-name="Available-record-indicator"] circle { fill: #007A33!important; } 
@@ -204,6 +209,4 @@ html { --mdc-plain-tooltip-supporting-text-color:#2b292a!important; } /* tooltip
   --checkboxBorder:  #6c757d!important; /* dark grey */
   --neutralBG: #F5F5F5!important; /* digital white */
 
-  /* overriding large size font to be larger */
-  --sys-body-large: 400 1.15rem/1.5rem "Noto Sans Display", sans-serif;
 }
