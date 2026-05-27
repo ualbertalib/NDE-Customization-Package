@@ -12,7 +12,12 @@
 a{
   color: #275D38;
 }
-
+p a{
+  text-decoration: underline;
+}
+p a:hover{
+  text-decoration: none;
+}
 .page-wrapper {
   width: 99%;
   box-sizing: border-box;
@@ -44,7 +49,7 @@ a{
   .page-header h1 { font-size: 1.8rem; }
 }
 
-.card {
+.home-card {
   background: var(--ll-white);
   border-radius: 10px;
   border: 1px solid var(--ll-border);
@@ -53,15 +58,15 @@ a{
   transition: box-shadow 0.2s ease;
 }
 
-.card:hover {
+.home-card:hover {
   box-shadow: 0 4px 18px rgba(39,93,56,0.12);
 }
 
-.card.full-width {
+.home-card.full-width {
   grid-column: 1 / -1;
 }
 
-.card h2 {
+.home-card h2 {
   font-family: 'Roboto', sans-serif;
   font-size: 1.3rem;
   font-weight: 600;
@@ -70,7 +75,7 @@ padding-bottom: 0.8rem;
   line-height: 1.2;
 }
 
-.card p {
+.home-card p {
   font-size: 0.92rem;
   color: var(--ll-text-muted);
   margin-bottom: 1rem;
