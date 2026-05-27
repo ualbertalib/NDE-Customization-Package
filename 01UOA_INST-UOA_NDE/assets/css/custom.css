@@ -203,4 +203,7 @@ html { --mdc-plain-tooltip-supporting-text-color:#2b292a!important; } /* tooltip
   --searchBarBG: #F5F5F5!important; /* digital white */
   --checkboxBorder:  #6c757d!important; /* dark grey */
   --neutralBG: #F5F5F5!important; /* digital white */
+
+  /* overriding large size font to be larger */
+  --sys-body-large: 400 1.15rem/1.5rem "Noto Sans Display", sans-serif;
 }
