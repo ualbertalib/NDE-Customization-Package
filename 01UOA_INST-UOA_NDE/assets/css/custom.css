@@ -26,43 +26,22 @@ nde-logo { display: none; }
 
 .accordion-header, nde-location-items-container { background-color: #fff; }
 
- /* chat widget styles */ 
-
-.s-lch-widget-float.open{
-  height:75%;
-  top:auto;
-}
-.s-lch-widget-float-btn{
-  box-shadow:none !important;
-  background-color:transparent;
-}
-.s-lch-widget-float-btn img{
-  box-shadow: 0 0 0 0 rgba(200, 107,    168, 0.7);
-  animation: pulse 3s infinite cubic-bezier(0.66, 0, 0, 1);
-  border-radius:15px;
-  background-color:transparent;
-}
-.s-lch-offline-msg-2 a{
-  display:block;
-}
-.s-lch-widget-float-btn img:hover, img[alt="Chat is Offline"]
-{
-  animation: none;
-}
-.search-bar-container .search-input-field.keyboard-focused {
-  outline: 1px #007A33 !important;
-}
+/* chat widget styles */ 
+.s-lch-widget-float.open{  height:75%;  top:auto; }
+.s-lch-widget-float-btn{  box-shadow:none !important;  background-color:transparent; }
+.s-lch-widget-float-btn img{  box-shadow: 0 0 0 0 rgba(200, 107,    168, 0.7);  animation: pulse 3s infinite cubic-bezier(0.66, 0, 0, 1);  border-radius:15px;  background-color:transparent; }
+.s-lch-offline-msg-2 a{  display:block; }
+.s-lch-widget-float-btn img:hover, img[alt="Chat is Offline"] {  animation: none; }
+.search-bar-container .search-input-field.keyboard-focused {  outline: 1px #007A33 !important; }
 @keyframes pulse {to {box-shadow: 0 0 0 6px rgba(200,107,168, 0);}}
-
-@media only screen and (min-width: 768px) and (max-width: 1919.98px) {
-    .cdk-overlay-container:has(.main-menu-dialog) {
-        top: 135px !important;
-    }
-}
+@media only screen and (min-width: 768px) and (max-width: 1919.98px) { .cdk-overlay-container:has(.main-menu-dialog) {  top: 135px !important; } }
 
 /* temp change until known issue fixed - changing background of error to digital white, plus hiding section where error shows up */
 .no-requests { border-radius: 7px;  background-color:#f5f5f5!important;  }
 nde-requests .no-requests  { display: none; }
+
+/* change order of logged in user initials  */ 
+.user-area .user-area-logged-in span { unicode-bidi: bidi-override; direction: rtl; display: inline-block !important; line-height: 24px; }
 
 /* search results and full display - hiding hat icon and PART OF A COURSE and divider before */
 .mat-divider:has(+ div .mat-icon[data-mat-icon-name="Course-Indicator"]) { display: none; }
@@ -102,35 +81,30 @@ nde-account .mat-icon svg path { fill: #007A33!important; }
 /* overriding default 55 with 70 to not cut off green banner in large screens */
 @media only screen and (min-width: 1920px) {  .cdk-overlay-container:has(.main-menu-dialog) { top: 70px!important;   } }
 
-/*  hiding tooltips when main menu is open since text is included as subtitle */
+/* hiding tooltips when main menu is open since text is included as subtitle */
 .cdk-overlay-container:has(.main-menu-dialog) .mat-mdc-tooltip { display: none!important; }
 
-/*  removing padding before online access links on full display page */
+/* removing padding before online access links on full display page */
 button.view-it-card-no-license-container {  padding-inline-start: 0px; }
 
-/*  hiding bright white hr near top of full display page */
+/* hiding bright white hr near top of full display page */
 nde-full-display-navigation {  border-bottom: transparent!important; }
 
-/*  hiding outline of selected drop-down menu items */
+/* hiding outline of selected drop-down menu items */
 .nde-overrides .mat-mdc-option.mat-mdc-option-active.mdc-list-item {  outline: transparent!important;  }
 
-/*  making the keyboard focus a little less intense */
-.mdc-button.mat-mdc-button.cdk-focused.cdk-keyboard-focused {
-  outline: 1px solid var(--sys-primary);
-  --mat-mdc-button-persistent-ripple-color: transparent;
-}
+/* making the keyboard focus a little less intense */
+.mdc-button.mat-mdc-button.cdk-focused.cdk-keyboard-focused {  outline: 1px solid var(--sys-primary);  --mat-mdc-button-persistent-ripple-color: transparent; }
 
-/*  making the title bigger in full display */
-.search-result-item.full-display {
-  --sys-body-large: 400 1.25rem/1.5rem "Noto Sans Display", sans-serif;
-}
+/* making the title bigger in full display */
+.search-result-item.full-display {  --sys-body-large: 400 1.25rem/1.5rem "Noto Sans Display", sans-serif; }
 
 /* additional specific colour changes */
-rect { fill:#007A33!important; } /* "full versions list" stacked paper icon */
-.mat-icon[data-mat-icon-name="Available-record-indicator"] circle { fill: #007A33!important; } 
-.container .top-bar { background-color: #FFFFFF!important; } /* top navbar */
-.view-it-card-container { background-color: #FFFFFF!important; } /* online access boxes background */
-html { --mdc-plain-tooltip-supporting-text-color:#2b292a!important; } /* tooltip font */
+rect { fill:#007A33!important; }  /* "full versions list" stacked paper icon */
+.mat-icon[data-mat-icon-name="Available-record-indicator"] circle { fill: #007A33!important; }  /* green circle before 'Available' */
+.container .top-bar { background-color: #FFFFFF!important; }  /* top navbar */
+.view-it-card-container { background-color: #FFFFFF!important; }  /* online access boxes background */
+html { --mdc-plain-tooltip-supporting-text-color:#2b292a!important; }  /* tooltip font */
 .dropdown-box { background-color: #f5f5f5!important; }
 
 /* overriding custom-color-theme-green.css (under assets/color-themes) with ua colours */
@@ -194,7 +168,7 @@ html { --mdc-plain-tooltip-supporting-text-color:#2b292a!important; } /* tooltip
   --disableText: #D2D2D2!important; /* grey */
   --validBG: #6CC24A!important; /* ua light green */
   --intermediate: #F68D2E!important; /* ua orange */
-  --whiteBG: #F5F5F5!important; /* digital white --- entire page background inlcuding navbar */
+  --whiteBG: #F5F5F5!important; /* digital white --- entire page background including navbar */
   --notice: #7BA4DB!important; /* ua blue */
   --dark : #2b292a!important; /* black font */
   --darkBGWithOpacity: rgba(46, 46, 39, 0.8);
