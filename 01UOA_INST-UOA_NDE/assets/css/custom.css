@@ -39,6 +39,10 @@ nde-logo { display: none; }
 /* known issue: error in requests section when only item level requests present - changing background of error to digital white */
 .no-requests { border-radius: 7px;  background-color:#f5f5f5!important;  }
 
+/* removes the underline on New Search when on homepage, but still allows for underline on hover -- copied from NDE cohort email */
+.selected-page.mat-mdc-button-base { text-decoration: none; }
+.selected-page.mat-mdc-button-base:hover { text-decoration: underline; }
+
 /* change order of logged in user initials  */ 
 .user-area .user-area-logged-in span { unicode-bidi: bidi-override; direction: rtl; display: inline-block !important; line-height: 24px; }
 
