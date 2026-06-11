@@ -115,7 +115,7 @@ rect { fill:#007A33!important; }  /* ua green -- "full versions list" stacked pa
 html { --mdc-plain-tooltip-supporting-text-color:#2b292a!important; }  /* tooltip font */
 .dropdown-box { background-color: #f5f5f5!important; }
 nde-full-display-navigation { border-bottom: transparent!important; }  /* hr near top of full display page (originally bright white) */
-.search-history-card .search-history-list .search-history-row:nth-child(2n) { background-color: #f5f5f5;  } /* 2nd search history item in My Account Overview (originally sys-background aka bright white) */
+.search-history-card .search-history-list .search-history-row:nth-child(2n) { background-color: #f5f5f5!important;  } /* 2nd search history item in My Account Overview (originally sys-background aka bright white) */
 
 /* overriding custom-color-theme-green.css (under assets/color-themes) with ua colours */
 :root {
