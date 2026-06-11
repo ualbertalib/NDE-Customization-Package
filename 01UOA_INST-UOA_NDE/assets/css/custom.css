@@ -5,8 +5,12 @@ nde-logo { display: none; }
 /* ua green banner */
 .ual-top-banner { background-color:#275D38; height:80px;  width:100%; padding:15px 8px;}
 .ual-top-banner img { float:left; height:50px;}
-.ual-inner { width: clamp(1088px, 85%, 1368px); margin: auto;}
+/* .ual-inner { width: clamp(1088px, 85%, 1368px); margin: auto;} */
 .ual-library-tag { float:left; color:#F2CD00 !important; font-size:1.8rem; text-decoration: none!important; margin:10px 0 0 35px; font-weight: 300;}
+@media (min-width: 992px) { .ual-inner {  margin-left: 0; padding: 0 1rem 0 1.5rem;    } }
+@media (min-width: 1200px)  { .ual-inner  {   padding: 0 2.5rem 0 3rem;    } }
+@media(min-width: 88.5rem)  { .ual-inner  {   max-width:87.5rem; margin-left: calc((100vw - 87.5rem - 0.5rem)/2); margin-right: calc((100vw - 87.5rem - 0.5rem)/2);   padding: 0;    }  }
+
 
 .main-landing-page .about .about-content .about-text { gap:0.3rem; }
 
@@ -37,10 +41,17 @@ nde-logo { display: none; }
 /* known issue: error in requests section when only item level requests present - changing background of error to digital white */
 .no-requests { border-radius: 7px;  background-color:#f5f5f5!important;  }
 
+/* making logged in user initial circle icon yellow and black!!!!!! */ 
+.user-area .user-area-logged-in span { color: #2b292a !important; font-weight:600!important; }
+.user-area .user-area-logged-in span.ng-star-inserted {  background-color: #F2CD00 !important;  }
+
 /* full display page - location section */ 
 .getit-location-card, .even-location-item-card { background-color: #fff!important; }
 .not-grouped-by-library { border: 1px solid #d2d2d2!important; }
 .getit-location-items-filter-bar { background-color: #f5f5f5!important; border-top-left-radius: .5rem; border-top-right-radius: .5rem; }
+
+/* full display page - location section - align item level ges links with regular request links */
+.location-service-link { padding-top: 3px; }
 
 /* removes the underline on New Search when on homepage, but still allows for underline on hover -- copied from NDE cohort email */
 .selected-page.mat-mdc-button-base { text-decoration: none; }
