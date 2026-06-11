@@ -39,7 +39,8 @@ nde-logo { display: none; }
 @media only screen and (min-width: 768px) and (max-width: 1919.98px) { .cdk-overlay-container:has(.main-menu-dialog) {  top: 135px !important; } }
 
 /* My Account > Settings > Personal settings > Update Login Credentials */
-mat-card-actions>button[data-qa="settings-update-login-btn"] { display: none; }
+button[data-qa="settings-update-login-btn"] { display: none; }
+mat-card-actions:has(button[data-qa="settings-update-login-btn"]) { min-height:0px; }
 
 /* My Account > Holds + Requests > Not Requestable flag */
 .loan-info .renew-error {  background-color: #e56a54; color: #fff; }
