@@ -12,6 +12,12 @@ nde-logo { display: none; }
 @media(min-width: 88.5rem)  { .ual-inner  {   max-width:87.5rem; margin-left: calc((100vw - 87.5rem - 0.5rem)/2); margin-right: calc((100vw - 87.5rem - 0.5rem)/2);   padding: 0;    }  }
 
 
+/* changing resource recommender styles */
+.banner-title {font-size: 1.1rem !important;}
+.banner-default-background {background-color: #555 !important;}
+.resource-recommender-banner-overlay {top:0 !important; bottome:0 !important; background-color: transparent !important;}
+.resource-recommender-banner-container {margin-bottom: 1rem !important; height: 10rem !important;}
+
 .main-landing-page .about .about-content .about-text { gap:0.3rem; }
 
 .container .custom-search-bar-container h2 { display: none; }
