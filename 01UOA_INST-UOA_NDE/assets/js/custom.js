@@ -22,22 +22,25 @@
     // Uses a MutationObserver to handle Angular's async rendering — the banner
     // is injected as soon as nde-header appears in the DOM, and the guard
     // (.ual-top-banner check) prevents duplicate injection on re-renders.
+    // Prepends the banner div rather than replacing innerHTML, so Primo's own
+    // header content (including translated text) is left intact on language
+    // switches.
     // =========================================================================
     function injectBanner() {
         const header = document.querySelector('nde-header');
-
         if (!header || header.querySelector('.ual-top-banner')) return;
 
-        header.innerHTML = `
-            <div class="ual-top-banner">
-                <div class="ual-inner">
-                    <a href="https://ualberta.ca">
-                        <img src="https://www.ualberta.ca/_assets/images/ua-logo-reversed-white.svg" alt="University of Alberta">
-                    </a>
-                    <a href="https://library.ualberta.ca" class="ual-library-tag">Library</a>
-                </div>
+        const banner = document.createElement('div');
+        banner.className = 'ual-top-banner';
+        banner.innerHTML = `
+            <div class="ual-inner">
+                <a href="https://ualberta.ca">
+                    <img src="https://www.ualberta.ca/_assets/images/ua-logo-reversed-white.svg" alt="University of Alberta">
+                </a>
+                <a href="https://library.ualberta.ca" class="ual-library-tag">Library</a>
             </div>
         `;
+        header.prepend(banner);
     }
 
     const bannerObserver = new MutationObserver(() => {
@@ -47,7 +50,6 @@
         }
     });
 
-    // Watch the full document tree for Angular rendering nde-header
     bannerObserver.observe(document.body, { childList: true, subtree: true });
 
 
