@@ -129,6 +129,16 @@ html { --mdc-plain-tooltip-supporting-text-color:#2b292a!important; }  /* toolti
 nde-full-display-navigation { border-bottom: transparent!important; }  /* hr near top of full display page (originally bright white) */
 .search-history-card .search-history-list .search-history-row:nth-child(2n) { background-color: #f5f5f5!important;  } /* 2nd search history item in My Account Overview (originally sys-background aka bright white) */
 
+
+/*full page login page styles*/
+nde-login-page .image-section img, nde-login-page .login-header-logo{
+  display: none;
+}
+.login-page-container[_ngcontent-ng-c1471292739] .top-bar[_ngcontent-ng-c1471292739]{
+  background-color: #fff !important;
+}
+
+
 /* overriding custom-color-theme-green.css (under assets/color-themes) with ua colours */
 :root {
   --sys-background: #FFFFFF!important; /* bright white -- background for all search boxes - main, My Account > Saved records */
