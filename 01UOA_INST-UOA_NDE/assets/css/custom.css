@@ -134,7 +134,7 @@ nde-full-display-navigation { border-bottom: transparent!important; }  /* hr nea
 nde-login-page .image-section img, nde-login-page .login-header-logo{
   display: none;
 }
-.login-page-container[_ngcontent-ng-c1471292739] .top-bar[_ngcontent-ng-c1471292739]{
+nde-login-page .top-bar{
   background-color: #fff !important;
 }
 
