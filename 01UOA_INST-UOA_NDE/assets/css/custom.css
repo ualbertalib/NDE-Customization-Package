@@ -43,12 +43,15 @@ nde-logo { display: none; }
 @keyframes pulse {to {box-shadow: 0 0 0 6px rgba(200,107,168, 0);}}
 @media only screen and (min-width: 768px) and (max-width: 1919.98px) { .cdk-overlay-container:has(.main-menu-dialog) {  top: 135px !important; } }
 
-/* My Account > Settings > Personal settings > Update Login Credentials */
-button[data-qa="settings-update-login-btn"] { display: none; }
+
+/* my account > holds + requests */
+.loan-info .renew-error {  background-color: #e56a54; color: #fff; } /* changing not requestable flag to ua red */
+
+/* my account > settings > user settings */
+nde-personal-details { display: none; } /* hiding personal details box */
+button[data-qa="settings-update-login-btn"] { display: none; } /* hiding update login credentials in personal settings box */
 mat-card-actions:has(button[data-qa="settings-update-login-btn"]) { min-height:0px; }
 
-/* My Account > Holds + Requests > Not Requestable flag */
-.loan-info .renew-error {  background-color: #e56a54; color: #fff; }
 
 /* known issue: error in requests section when only item level requests present - changing background of error to digital white */
 .no-requests { border-radius: 7px;  background-color:#f5f5f5!important;  }
