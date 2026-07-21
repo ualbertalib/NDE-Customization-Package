@@ -44,10 +44,25 @@ nde-logo { display: none; }
 @media only screen and (min-width: 768px) and (max-width: 1919.98px) { .cdk-overlay-container:has(.main-menu-dialog) {  top: 135px !important; } }
 
 
-/* my account > holds + requests */
-.loan-info .renew-error {  background-color: #e56a54; color: #fff; } /* changing not requestable flag to ua red */
+/* my account */
 
-/* my account > settings > user settings */
+/* logged in user initials icon */ 
+.user-area .user-area-logged-in span { color: #2b292a!important; font-weight:600!important; }  /* font colour and weight */
+.user-area .user-area-logged-in span.ng-star-inserted {  background-color: #F2CD00 !important;  }  /* circle colour */
+.user-area .user-area-logged-in span { unicode-bidi: bidi-override; direction: rtl; display: inline-block !important; line-height: 24px; } /* user initials order */ 
+
+/* my account > overview */
+nde-account-overview .notification-text~a { color: #2b292a; }  /* colour of link in blue alert box */
+.search-history-card .search-history-list .search-history-row:nth-child(2n) { background-color: #f5f5f5!important;  } /* 2nd search history item (originally sys-background aka bright white) */
+
+/* my account > loans */
+.loan-info .renew-error {  background-color: #e56a54!important; color: #fff; } /* changing not renewable flag to ua red */
+
+/* my account > notices */
+nde-blocks h2[data-qa="blocks_messages_header"] { display: none; }  /* hiding block header ‘university of alberta’ */
+nde-blocks .block-item { border: #d2d2d2 solid 1px; }  /* putting block text into box like is typical of my account sections */
+
+/* my account > settings */
 nde-personal-details { display: none; } /* hiding personal details box */
 button[data-qa="settings-update-login-btn"] { display: none; } /* hiding update login credentials in personal settings box */
 mat-card-actions:has(button[data-qa="settings-update-login-btn"]) { min-height:0px; }
@@ -55,10 +70,6 @@ mat-card-actions:has(button[data-qa="settings-update-login-btn"]) { min-height:0
 
 /* known issue: error in requests section when only item level requests present - changing background of error to digital white */
 .no-requests { border-radius: 7px;  background-color:#f5f5f5!important;  }
-
-/* making logged in user initial circle icon yellow and black!!!!!! */ 
-.user-area .user-area-logged-in span { color: #2b292a !important; font-weight:600!important; }
-.user-area .user-area-logged-in span.ng-star-inserted {  background-color: #F2CD00 !important;  }
 
 /* full display page - location section */ 
 .getit-location-card, .even-location-item-card { background-color: #fff!important; }
@@ -71,9 +82,6 @@ mat-card-actions:has(button[data-qa="settings-update-login-btn"]) { min-height:0
 /* removes the underline on New Search when on homepage, but still allows for underline on hover -- copied from NDE cohort email */
 .selected-page.mat-mdc-button-base { text-decoration: none; }
 .selected-page.mat-mdc-button-base:hover { text-decoration: underline; }
-
-/* change order of logged in user initials  */ 
-.user-area .user-area-logged-in span { unicode-bidi: bidi-override; direction: rtl; display: inline-block !important; line-height: 24px; }
 
 /* search results and full display - hiding hat icon and PART OF A COURSE and divider before */
 .mat-divider:has(+ div .mat-icon[data-mat-icon-name="Course-Indicator"]) { display: none; }
@@ -130,7 +138,6 @@ rect { fill:#007A33!important; }  /* ua green -- "full versions list" stacked pa
 html { --mdc-plain-tooltip-supporting-text-color:#2b292a!important; }  /* tooltip font */
 .dropdown-box { background-color: #f5f5f5!important; }
 nde-full-display-navigation { border-bottom: transparent!important; }  /* hr near top of full display page (originally bright white) */
-.search-history-card .search-history-list .search-history-row:nth-child(2n) { background-color: #f5f5f5!important;  } /* 2nd search history item in My Account Overview (originally sys-background aka bright white) */
 
 
 /*full page login page styles*/
