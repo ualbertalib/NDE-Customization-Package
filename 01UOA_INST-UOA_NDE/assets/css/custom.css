@@ -18,7 +18,7 @@ nde-logo { display: none; } /* green ua logo that shows by default before new se
 .selected-page.mat-mdc-button-base { text-decoration: none; } /* removes the underline on New Search when on homepage, but still allows for underline on hover - copied from NDE cohort email */
 .selected-page.mat-mdc-button-base:hover { text-decoration: underline; }
 html { --mdc-plain-tooltip-supporting-text-color:#2b292a!important; }  /* tooltip font */
-.main-menu-container{ margin-left: 9%; }
+.main-menu-container{ margin-left: 4%; }
 
 /* search bar */
 .container .top-bar-background-image { background-image: none !important; }  /* giant default header image */
