@@ -135,7 +135,8 @@
         "Inventory list of the Ivo Andrić archives, Accession 96-165",
         "Guide thématique sur les thèses et mémoires",
         "Afficher la notice de la source",
-        "Orientation guide"
+        "Orientation guide",
+        "View Digitized Collection"
     ];
 
     const filterLinks = () => {
