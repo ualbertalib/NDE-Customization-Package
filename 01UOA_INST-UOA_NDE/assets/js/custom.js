@@ -136,7 +136,7 @@
         "Guide thématique sur les thèses et mémoires",
         "Afficher la notice de la source",
         "Orientation guide",
-        "View Digitized Collection"
+        "Digitized collection"
     ];
 
     const filterLinks = () => {
