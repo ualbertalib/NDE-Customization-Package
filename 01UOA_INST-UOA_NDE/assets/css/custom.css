@@ -29,6 +29,11 @@ html { --mdc-plain-tooltip-supporting-text-color:#2b292a!important; }  /* toolti
 .nde-overrides .mat-mdc-option.mat-mdc-option-active.mdc-list-item {  outline: transparent!important;  } /* hiding outline of selected drop-down menu items */
 .dropdown-box { background-color: #f5f5f5!important; }
 .mdc-button.mat-mdc-button.cdk-focused.cdk-keyboard-focused {  outline: 1px solid var(--sys-primary);  --mat-mdc-button-persistent-ripple-color: transparent; } /* making the keyboard focus a little less intense */
+.search-bar-container .search-bar-wrapper { background-color: #FFFFFF!important; }
+
+/* advanced search */
+.mat-mdc-form-field.search-field { background-color: #fff!important; }  /* search box background colour */
+.mat-mdc-form-field.barcode-search-field { background-color: #fff!important; }  /* barcode search box background colour */
 
 /* ual chat widget */ 
 .s-lch-widget-float.open{  height:75%;  top:auto; }
@@ -47,7 +52,8 @@ html { --mdc-plain-tooltip-supporting-text-color:#2b292a!important; }  /* toolti
 
 
 /* search results */
-
+.pagination-container .current-page { background-color: #275D38!important; color: #ffffff!important; }
+.filter-results-count { color: #6c757d!important; } /* number in brackets beside filters */
 [data-qa="link-to-newspaper-search"] { display: none; }
 
 /* resource recommender grey banner */
@@ -150,7 +156,7 @@ nde-journal-database-layout-component .journal-homepage-container { margin-block
 
 /* overriding custom-color-theme-green.css (under assets/color-themes) with ua colours */
 :root {
-  --sys-background: #FFFFFF!important; /* bright white -- background for all search boxes - main, My Account > Saved records */
+  --sys-background: #f5f5f5!important; /* digital white -- background for search boxes - main, my account > saved records, everything drop-down in advanced search  */
   --sys-error: #e56a54!important; /* ua red */
   --sys-error-container: #e56a54!important; /* ua red */
   --sys-inverse-on-surface: #F5F5F5!important;  /* digital white -- tooltip font, background of 'Everything' drop-down menu, background of loans,holds+requests,fees boxes in my account */
