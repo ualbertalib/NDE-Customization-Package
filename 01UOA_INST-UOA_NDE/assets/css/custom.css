@@ -30,6 +30,7 @@ html { --mdc-plain-tooltip-supporting-text-color:#2b292a!important; }  /* toolti
 .dropdown-box { background-color: #f5f5f5!important; }
 .mdc-button.mat-mdc-button.cdk-focused.cdk-keyboard-focused {  outline: 1px solid var(--sys-primary);  --mat-mdc-button-persistent-ripple-color: transparent; } /* making the keyboard focus a little less intense */
 .search-bar-container .search-bar-wrapper { background-color: #FFFFFF!important; }
+.search-dropdown-container .search-dropdown-container-button { background-color: #FFFFFF!important; } /* everything drop-down */
 
 /* advanced search */
 .mat-mdc-form-field.search-field { background-color: #fff!important; }  /* search box background colour */
