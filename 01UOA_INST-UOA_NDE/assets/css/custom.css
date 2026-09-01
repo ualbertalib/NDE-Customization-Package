@@ -52,9 +52,10 @@ html { --mdc-plain-tooltip-supporting-text-color:#2b292a!important; }  /* toolti
 
 
 /* search results */
+[data-qa="link-to-newspaper-search"] { display: none; }
 .pagination-container .current-page { background-color: #275D38!important; color: #ffffff!important; }
 .filter-results-count { color: #6c757d!important; } /* number in brackets beside filters */
-[data-qa="link-to-newspaper-search"] { display: none; }
+.record-indication {  color: #6c757d!important;  } /* resource type shown in search results */
 
 /* resource recommender grey banner */
 .banner-title {font-size: 1.1rem !important;}
