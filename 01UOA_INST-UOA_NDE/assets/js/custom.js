@@ -16,41 +16,76 @@
     initAngular();
 
 
-    // =========================================================================
-    // UAL TOP BANNER INJECTION
-    // Injects the University of Alberta top banner into the nde-header element.
-    // Uses a MutationObserver to handle Angular's async rendering — the banner
-    // is injected as soon as nde-header appears in the DOM, and the guard
-    // (.ual-top-banner check) prevents duplicate injection on re-renders.
-    // Prepends the banner div rather than replacing innerHTML, so Primo's own
-    // header content (including translated text) is left intact on language
-    // switches.
-    // =========================================================================
-    function injectBanner() {
-        const header = document.querySelector('nde-header');
-        if (!header || header.querySelector('.ual-top-banner')) return;
 
-        const banner = document.createElement('div');
-        banner.className = 'ual-top-banner';
-        banner.innerHTML = `
-            <div class="ual-inner">
-                <a href="https://ualberta.ca">
-                    <img src="https://www.ualberta.ca/_assets/images/ua-logo-reversed-white.svg" alt="University of Alberta">
-                </a>
-                <a href="https://library.ualberta.ca" class="ual-library-tag">Library</a>
-            </div>
-        `;
-        header.prepend(banner);
+// =========================================================================
+// UAL TOP BANNER INJECTION
+// Injects the University of Alberta top banner into the nde-header element.
+// Uses a MutationObserver to handle Angular's async rendering — the banner
+// is injected as soon as nde-header appears in the DOM.
+//
+// French support / mid-session language switching: language is checked on
+// a timer (see langPoller below) rather than inside the MutationObserver
+// callback. This is the loop-safe way to do it — the poller only touches
+// the DOM when the language has ACTUALLY changed (comparing against
+// activeLang), never on every mutation. A render can't re-trigger itself,
+// because after rendering, activeLang is updated to match, so the next
+// check (even one fired by the render's own DOM mutation) sees no change
+// and does nothing.
+// =========================================================================
+function currentLangCode() {
+    return new URLSearchParams(window.location.search).get('lang') === 'fr' ? 'fr' : 'en';
+}
+ 
+function bannerMarkup(lang) {
+    const french = lang === 'fr';
+    const logoAlt = french ? "Université de l'Alberta" : 'University of Alberta';
+    const tagHref = french ? 'https://www.ualberta.ca/fr/bibliotheque/index.html' : 'https://library.ualberta.ca';
+    const tagText = french ? 'Bibliothèque' : 'Library';
+    return `
+        <div class="ual-inner">
+            <a href="https://ualberta.ca">
+                <img src="https://www.ualberta.ca/_assets/images/ua-logo-reversed-white.svg" alt="${logoAlt}">
+            </a>
+            <a href="${tagHref}" class="ual-library-tag">${tagText}</a>
+        </div>
+    `;
+}
+ 
+let activeLang = currentLangCode();
+ 
+function injectBanner() {
+    const header = document.querySelector('nde-header');
+    if (!header || header.querySelector('.ual-top-banner')) return;
+ 
+    const banner = document.createElement('div');
+    banner.className = 'ual-top-banner';
+    banner.innerHTML = bannerMarkup(activeLang);
+    header.prepend(banner);
+}
+ 
+// MutationObserver's ONLY job is to inject the banner once, the first time
+// nde-header shows up. It never re-renders — so it can never loop.
+const bannerObserver = new MutationObserver(() => {
+    const header = document.querySelector('nde-header');
+    if (header && !header.querySelector('.ual-top-banner')) {
+        injectBanner();
     }
-
-    const bannerObserver = new MutationObserver(() => {
-        const header = document.querySelector('nde-header');
-        if (header && !header.querySelector('.ual-top-banner')) {
-            injectBanner();
-        }
-    });
-
-    bannerObserver.observe(document.body, { childList: true, subtree: true });
+});
+bannerObserver.observe(document.body, { childList: true, subtree: true });
+ 
+// Polling is what makes mid-session language switching work. Checking
+// every 700ms is cheap and, critically, only writes to the DOM when
+// currentLangCode() differs from activeLang — so it's a no-op almost
+// every time it runs.
+setInterval(() => {
+    const lang = currentLangCode();
+    if (lang === activeLang) return; // nothing changed — do nothing, no loop risk
+ 
+    const banner = document.querySelector('nde-header .ual-top-banner');
+    if (banner) banner.innerHTML = bannerMarkup(lang);
+    activeLang = lang;
+}, 700);
+ 
 
 
     // =========================================================================
@@ -69,8 +104,6 @@
     (() => {
         const libchatHash = 'baadd67c0b9382719dabca82069083e2e6b6d873103a32cc235ec09ad41f22a5';
         const host = 'ualberta.libanswers.com';
-        const desktopImg = 'https://sites.library.ualberta.ca/wp-content/uploads/2026/05/chat-button-desktop.png';
-        const mobileImg  = 'https://sites.library.ualberta.ca/wp-content/uploads/2026/05/chat-button-mobile.png';
         const mq = window.matchMedia('(max-width: 768px)');
 
         // Inject early to prevent overflow before JS swap runs
