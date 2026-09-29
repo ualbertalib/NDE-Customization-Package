@@ -41,10 +41,11 @@ function bannerMarkup(lang) {
     const logoAlt = french ? "Université de l'Alberta" : 'University of Alberta';
     const tagHref = french ? 'https://www.ualberta.ca/fr/bibliotheque/index.html' : 'https://library.ualberta.ca';
     const tagText = french ? 'Bibliothèque' : 'Library';
+    const imgLink = french ? 'https://www.ualberta.ca/_assets/images/ua-logo-white-fr-ca.svg' : 'https://www.ualberta.ca/_assets/images/ua-logo-reversed-white.svg'
     return `
         <div class="ual-inner">
             <a href="https://ualberta.ca">
-                <img src="https://www.ualberta.ca/_assets/images/ua-logo-reversed-white.svg" alt="${logoAlt}">
+                <img src="${imgLink}" alt="${logoAlt}">
             </a>
             <a href="${tagHref}" class="ual-library-tag">${tagText}</a>
         </div>
