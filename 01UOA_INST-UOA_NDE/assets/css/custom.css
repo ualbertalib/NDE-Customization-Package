@@ -65,15 +65,15 @@ html { --mdc-plain-tooltip-supporting-text-color:#2b292a!important; }  /* toolti
 .resource-recommender-banner-overlay {top:0 !important; bottome:0 !important; background-color: transparent !important;}
 .resource-recommender-banner-container {margin-bottom: 1rem !important; height: 10rem !important;}
 
-/* specific icon colour changes - removing nde-full-display-container to change them in results as well */
+/* search results + full display - specific icon colour changes */
 .mat-icon[data-mat-icon-name="Share"] svg path { fill: #007A33!important; }
 .mat-icon[data-mat-icon-name="Bookmark"] svg path { fill: #007A33!important; }
 .mat-icon[data-mat-icon-name="Export"] svg path { fill: #007A33!important; }
 .mat-icon[data-mat-icon-name="Citation"] svg path { fill: #007A33!important; }
 .mat-icon.open-access-indicator-color svg path {  fill: #F68D2E!important; } /* open access icon - ua orange */
 .mat-icon[data-mat-icon-name="Peer-Reviewed-Indicator"] svg g path {  fill: #7BA4DB;  } /* peer reviewed icon - ua blue */
-.record-indication-wrapper .mat-icon svg [data-mat-icon-name="Peer-Reviewed-Indicator"] g circle {  fill: #7BA4DB; } /* peer reviewed icon - ua blue */
-.mat-icon[data-mat-icon-name="Peer-Reviewed-Indicator"].primary-circle svg g circle {  fill: #7BA4DB;  } /* peer reviewed icon - ua blue */
+.record-indication-wrapper .mat-icon svg [data-mat-icon-name="Peer-Reviewed-Indicator"] g circle, .mat-icon[data-mat-icon-name="Peer-Reviewed-Indicator"].primary-circle svg g circle, .record-indication-wrapper .mat-icon[data-mat-icon-name="Peer-Reviewed-Indicator"] svg g circle { fill: #2b292a!important; } /* peer-reviewed icon eyeball - ua black */
+
 
 /* exclude icon - ua red - as of nov 2026 release it fills in and you can select multiples before selecting apply filters */
 .mat-icon.two-tone-primary-icon svg g path:first-of-type {  fill: #e56a54; }
