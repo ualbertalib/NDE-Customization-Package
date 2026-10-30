@@ -19,6 +19,7 @@ nde-logo { display: none; } /* green ua logo that shows by default before new se
 .selected-page.mat-mdc-button-base:hover { text-decoration: underline; }
 html { --mdc-plain-tooltip-supporting-text-color:#2b292a!important; }  /* tooltip font */
 .main-menu-container{ margin-left: 5px; }
+.mat-mdc-select-arrow svg { fill: #6c757d; }   /* drop-down arrow beside language - dark grey */
 
 /* search bar */
 .container .top-bar-background-image { background-image: none !important; }  /* giant default header image */
@@ -50,8 +51,15 @@ html { --mdc-plain-tooltip-supporting-text-color:#2b292a!important; }  /* toolti
 .pagination-container .current-page { background-color: #275D38!important; color: #ffffff!important; }
 .filter-results-count { color: #6c757d!important; } /* number in brackets beside filters */
 .record-type, .record-indication, .journal-line-text {  color: #6c757d!important;  } /* resource type, article type, etc. */
+.search-results-top-bar-wrapper .results-top-bar-container {    background-color: #f5f5f5; }  /* header with count of results, etc. */
+.record-number {   background-color: #f5f5f5; }  /* box around results record number */
 
-/* resource recommender grey banner */
+/* search results + full display + my account */
+/* changing background of info alert to ua blue and icon to black */
+.info-alert-background { background-color: #7BA4DB!important; }
+.info-alert-background .mat-icon svg path { fill: #2b292a!important; }
+
+/* resource recommender grey banner - off as of oct 2026 */
 .banner-title {font-size: 1.1rem !important;}
 .banner-default-background {background-color: #555 !important;}
 .resource-recommender-banner-overlay {top:0 !important; bottome:0 !important; background-color: transparent !important;}
@@ -62,12 +70,12 @@ html { --mdc-plain-tooltip-supporting-text-color:#2b292a!important; }  /* toolti
 .mat-icon[data-mat-icon-name="Bookmark"] svg path { fill: #007A33!important; }
 .mat-icon[data-mat-icon-name="Export"] svg path { fill: #007A33!important; }
 .mat-icon[data-mat-icon-name="Citation"] svg path { fill: #007A33!important; }
-.mat-icon[data-mat-icon-name="Exclude"] svg path { fill: #e56a54!important; }  /* ua red -- exclude in filters */
+/* .mat-icon[data-mat-icon-name="Exclude"] svg path { fill: #e56a54!important; } */ /* ua red -- exclude in filters - hiding for nov 2026 release*/
 .mat-icon.open-access-indicator-color svg path {  fill: #F68D2E; } /* open access icon - ua orange */
 .mat-icon[data-mat-icon-name="Peer-Reviewed-Indicator"] svg g path {  fill: #7BA4DB;  } /* peer reviewed icon - ua blue */
 .record-indication-wrapper .mat-icon svg [data-mat-icon-name="Peer-Reviewed-Indicator"] g circle {  fill: #7BA4DB; } /* peer reviewed icon - ua blue */
 
-/* exclude icon - ua red - as of nov release it fills in and you can select multiples before selecting apply filters */
+/* exclude icon - ua red - as of nov 2026 release it fills in and you can select multiples before selecting apply filters */
 .mat-icon.two-tone-primary-icon svg g path:first-of-type {  fill: #e56a54; }
 .mat-icon.two-tone-primary-icon svg g path {  fill: #2b292a;  }
 
@@ -79,8 +87,10 @@ html { --mdc-plain-tooltip-supporting-text-color:#2b292a!important; }  /* toolti
 rect { fill:#007A33!important; }  /* ua green -- "full versions list" stacked paper icon */
 .mat-icon[data-mat-icon-name="Available-record-indicator"] circle { fill: #007A33!important; }  /* ua green -- green circle before available item library/location */
 
-/* full display */
 
+/* full display */
+.search-result-item.full-display {  --sys-body-large: 400 1.25rem/1.5rem "Noto Sans Display", sans-serif; } /* making the title bigger in full display */
+nde-full-display-navigation { border-bottom: transparent!important; }  /* hr near top of full display page (originally bright white) */
 .view-it-card-container { background-color: #FFFFFF!important; }  /* online access boxes background */
 
 /* known issue: error in requests section when only item level requests present - changing background of error to digital white */
@@ -88,23 +98,10 @@ rect { fill:#007A33!important; }  /* ua green -- "full versions list" stacked pa
 
 /* full display page - location section */ 
 .getit-location-card, .even-location-item-card { background-color: #fff!important; }
-.not-grouped-by-library { border: 1px solid #d2d2d2!important; }
+.not-grouped-by-library { border: 1px solid #d2d2d2!important; padding-block-end: 5px; }  /* border around item info - originally 2px */
 .getit-location-items-filter-bar { background-color: #f5f5f5!important; border-top-left-radius: .5rem; border-top-right-radius: .5rem; }
-
-/* full display page - location section - align item level ges links with regular request links */
-.location-service-link { padding-top: 3px; }
-
-/* making the title bigger in full display */
-.search-result-item.full-display {  --sys-body-large: 400 1.25rem/1.5rem "Noto Sans Display", sans-serif; }
-
-nde-full-display-navigation { border-bottom: transparent!important; }  /* hr near top of full display page (originally bright white) */
-
-
-/* full display + my account */
-
-/* changing background of info alert to ua blue and icon to black */
-.info-alert-background { background-color: #7BA4DB!important; }
-.info-alert-background .mat-icon svg path { fill: #2b292a!important; }
+.location-service-link { padding-top: 3px; }  /* align item level ges links with regular request links */
+.location-item .mat-divider:last-of-type {display: none; }  /* hiding hr at the bottom of item info box when not expanded */
 
 /* my account */
 
@@ -226,7 +223,7 @@ nde-journal-database-layout-component .journal-homepage-container { margin-block
   --switchTrackColor: #D2D2D2!important; /* grey */
   --border: #D2D2D2!important; /* grey -- all borders (search boxes, hr under search boxes, boxes around item info and location info on full display page) */
   --scrollBar: #D2D2D2!important; /* grey */
-  --lightBG: #FFFFFF; /* bright white -- record number and header in search results, item level rows in location area on full display page */
+  --lightBG: #FFFFFF; /* bright white -- record number background and header in search results, arrow navigation background and item level rows in location area on full display page */
   --darkBG: #D2D2D2!important; /* grey -- header of locations box on full display page */
   --searchBarBG: #F5F5F5!important; /* digital white */
   --checkboxBorder:  #6c757d!important; /* dark grey */
