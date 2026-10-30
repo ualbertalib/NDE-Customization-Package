@@ -51,8 +51,8 @@ html { --mdc-plain-tooltip-supporting-text-color:#2b292a!important; }  /* toolti
 .pagination-container .current-page { background-color: #275D38!important; color: #ffffff!important; }
 .filter-results-count { color: #6c757d!important; } /* number in brackets beside filters */
 .record-type, .record-indication, .journal-line-text {  color: #6c757d!important;  } /* resource type, article type, etc. */
-.search-results-top-bar-wrapper .results-top-bar-container {  background-color: #f5f5f5!important; }  /* header with count of results, etc. */
-.record-number {   background-color: #f5f5f5!important; }  /* box around results record number */
+/* .search-results-top-bar-wrapper .results-top-bar-container {  background-color: #f5f5f5!important; } */ /* header with count of results, etc. */
+/* .record-number {   background-color: #f5f5f5!important; } */ /* box around results record number */
 
 /* search results + full display + my account */
 /* changing background of info alert to ua blue and icon to black */
@@ -92,12 +92,13 @@ rect { fill:#007A33!important; }  /* ua green -- "full versions list" stacked pa
 .search-result-item.full-display {  --sys-body-large: 400 1.25rem/1.5rem "Noto Sans Display", sans-serif; } /* making the title bigger in full display */
 nde-full-display-navigation { border-bottom: transparent!important; }  /* hr near top of full display page (originally bright white) */
 .view-it-card-container { background-color: #FFFFFF!important; }  /* online access boxes background */
-.back-to-results-btn.mdc-icon-button, .previous-result-btn.mdc-icon-button, .next-result-btn.mdc-icon-button {  background-color: transparent!important; }  /* background of arrow navigation on full display */
+/* .back-to-results-btn.mdc-icon-button, .previous-result-btn.mdc-icon-button, .next-result-btn.mdc-icon-button {  background-color: transparent!important; } */ /* background of arrow navigation on full display */
 
 /* known issue: error in requests section when only item level requests present - changing background of error to digital white */
 .no-requests { border-radius: 7px;  background-color:#f5f5f5!important;  }
 
 /* full display page - location section */ 
+.even-item .brief-property-header-container { background-color: #fff!important; }
 .brief-property-header-container:last-of-type {  border-bottom-right-radius: .5rem;  border-bottom-left-radius: .5rem;  } /* adding same border radius to container that border is around */
 /* .getit-location-card, .even-location-item-card { background-color: #fff!important; } */ /* hiding for nov 2026 release */
 .not-grouped-by-library { border: 1px solid #d2d2d2!important; }  /* border around item info - originally 2px */
@@ -105,7 +106,7 @@ nde-full-display-navigation { border-bottom: transparent!important; }  /* hr nea
 .location-service-link { padding-top: 3px; }  /* align item level ges links with regular request links */
 .location-item .mat-divider:last-of-type {display: none; }  /* hiding hr at the bottom of item info box when not expanded */
 
-.results-list .item { background-color: transparent!important; } /* background of items under 'other chapters of this book' and 'book reviews' on full display */
+/* .results-list .item { background-color: transparent!important; } */ /* background of items under 'other chapters of this book' and 'book reviews' on full display */
 
 /* my account */
 
@@ -227,7 +228,7 @@ nde-journal-database-layout-component .journal-homepage-container { margin-block
   --switchTrackColor: #D2D2D2!important; /* grey */
   --border: #D2D2D2!important; /* grey -- all borders (search boxes, hr under search boxes, boxes around item info and location info on full display page) */
   --scrollBar: #D2D2D2!important; /* grey */
-  --lightBG: #FFFFFF; /* bright white -- record number background and header in search results, arrow navigation background and item level rows in location area on full display page */
+  --lightBG: #F5F5F5!important; /* digital white -- header/record number background in search results & my account, arrow navigation background/item level rows in location area on full display */
   --darkBG: #D2D2D2!important; /* grey -- header of locations box on full display page */
   --searchBarBG: #F5F5F5!important; /* digital white */
   --checkboxBorder:  #6c757d!important; /* dark grey */
