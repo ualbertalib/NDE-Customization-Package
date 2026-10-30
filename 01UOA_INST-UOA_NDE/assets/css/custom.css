@@ -92,7 +92,7 @@ rect { fill:#007A33!important; }  /* ua green -- "full versions list" stacked pa
 .search-result-item.full-display {  --sys-body-large: 400 1.25rem/1.5rem "Noto Sans Display", sans-serif; } /* making the title bigger in full display */
 nde-full-display-navigation { border-bottom: transparent!important; }  /* hr near top of full display page (originally bright white) */
 .view-it-card-container { background-color: #FFFFFF!important; }  /* online access boxes background */
-.back-to-results-btn.mdc-icon-button, .previous-result-btn.mdc-icon-button {  background-color: inherit; }  /* background of arrow navigation on full display */
+.back-to-results-btn.mdc-icon-button, .previous-result-btn.mdc-icon-button, .next-result-btn.mdc-icon-button {  background-color: transparent!important; }  /* background of arrow navigation on full display */
 
 /* known issue: error in requests section when only item level requests present - changing background of error to digital white */
 .no-requests { border-radius: 7px;  background-color:#f5f5f5!important;  }
@@ -104,6 +104,8 @@ nde-full-display-navigation { border-bottom: transparent!important; }  /* hr nea
 .getit-location-items-filter-bar { background-color: #f5f5f5!important; border-top-left-radius: .5rem; border-top-right-radius: .5rem; }
 .location-service-link { padding-top: 3px; }  /* align item level ges links with regular request links */
 .location-item .mat-divider:last-of-type {display: none; }  /* hiding hr at the bottom of item info box when not expanded */
+
+.results-list .item { background-color: transparent!important; } /* background of items under 'other chapters of this book' and 'book reviews' on full display */
 
 /* my account */
 
