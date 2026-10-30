@@ -98,9 +98,9 @@ nde-full-display-navigation { border-bottom: transparent!important; }  /* hr nea
 .no-requests { border-radius: 7px;  background-color:#f5f5f5!important;  }
 
 /* full display page - location section */ 
+.getit-location-card { background-color: #fff!important; } /* area all around location section including library name */
 .even-item .brief-property-header-container { background-color: #fff!important; }
 .brief-property-header-container:last-of-type {  border-bottom-right-radius: .5rem;  border-bottom-left-radius: .5rem;  } /* adding same border radius to container that border is around */
-/* .getit-location-card, .even-location-item-card { background-color: #fff!important; } */ /* hiding for nov 2026 release */
 .not-grouped-by-library { border: 1px solid #d2d2d2!important; }  /* border around item info - originally 2px */
 .getit-location-items-filter-bar { background-color: #f5f5f5!important; border-top-left-radius: .5rem; border-top-right-radius: .5rem; }
 .location-service-link { padding-top: 3px; }  /* align item level ges links with regular request links */
@@ -129,13 +129,15 @@ nde-account-overview .notification-text~a { color: #2b292a; }  /* colour of link
 /* changing icon colours in my account */
 /* nde-account .mat-icon:not(.mat-icon.grey-icon-color-no-stroke) svg path { fill: #007A33!important; } */
 .account-menu-container ul { color: #2b292a; }
-.mat-icon[data-mat-icon-name="accountOverview"] svg path { fill: #007A33!important; }
-.mat-icon[data-mat-icon-name="accountLoans"] svg path { fill: #007A33!important; }
-.mat-icon[data-mat-icon-name="accountRequests"] svg path { fill: #007A33!important; }
-.mat-icon[data-mat-icon-name="accountFines"] svg path { fill: #007A33!important; }
-.mat-icon[data-mat-icon-name="savedSearches"] svg path { fill: #007A33!important; }
-.mat-icon[data-mat-icon-name="searchHistory"] svg path { fill: #007A33!important; }
-.mat-icon[data-mat-icon-name="accountSetting"] svg path { fill: #007A33!important; }
+.account-menu-container .mat-icon[data-mat-icon-name="accountOverview"] svg path { fill: #007A33!important; }
+.account-menu-container .mat-icon[data-mat-icon-name="accountLoans"] svg path { fill: #007A33!important; }
+.account-menu-container .mat-icon[data-mat-icon-name="accountRequests"] svg path { fill: #007A33!important; }
+.account-menu-container .mat-icon[data-mat-icon-name="accountFines"] svg path { fill: #007A33!important; }
+.account-menu-container .mat-icon[data-mat-icon-name="accountMessages"] svg path { fill: #007A33!important; }
+.account-menu-container .mat-icon[data-mat-icon-name="savedRecords"] svg path { fill: #007A33!important; }
+.account-menu-container .mat-icon[data-mat-icon-name="savedSearches"] svg path { fill: #007A33!important; }
+.account-menu-container .mat-icon[data-mat-icon-name="searchHistory"] svg path { fill: #007A33!important; }
+.account-menu-container .mat-icon[data-mat-icon-name="accountSetting"] svg path { fill: #007A33!important; }
 
 /* my account > loans */
 .loan-info .renew-error {  background-color: #e56a54!important; color: #fff; } /* changing not renewable flag to ua red */
