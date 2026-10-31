@@ -33,6 +33,9 @@ html { --mdc-plain-tooltip-supporting-text-color:#2b292a!important; }  /* toolti
 .search-bar-container .search-bar-wrapper { background-color: #FFFFFF!important; }
 .search-dropdown-container .search-dropdown-container-button { background-color: #FFFFFF!important; } /* everything drop-down */
 
+ /* matching menu selection on main search and advanced search to other menu selection throughout primo - to revisit in the future as it isn’t very fun since it’s grey */
+.add-scope-menu .mat-mdc-menu-item.selected {    border: 1px solid #D2D2D2!important;    background-color: #D2D2D2!important;    color: #2b292a!important;  } 
+
 /* advanced search */
 .mat-mdc-form-field.search-field { background-color: #fff!important; }  /* search box background colour */
 .mat-mdc-form-field.barcode-search-field { background-color: #fff!important; }  /* barcode search box background colour */
