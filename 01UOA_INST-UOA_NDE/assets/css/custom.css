@@ -155,7 +155,8 @@ button[data-qa="settings-update-login-btn"] { display: none; } /* hiding update 
 mat-card-actions:has(button[data-qa="settings-update-login-btn"]) { min-height:0px; }
 
 
-
+/* remove Send to Reading List button - Should NOT be in TAlIS view */
+.bookmark-button-container { display:none; }
 
 /* journal search */
 nde-journal-database-layout-component .journal-homepage-container { margin-block-start: 1rem!important; } /* decreasing huge margin at the top */
