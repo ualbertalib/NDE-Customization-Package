@@ -1,3 +1,4 @@
+/* headers/navigation */
 
 /* ua green header */
 .ual-top-banner { background-color:#275D38; height:80px; width:100%; padding:15px 8px; }
@@ -21,7 +22,10 @@ html { --mdc-plain-tooltip-supporting-text-color:#2b292a!important; }  /* toolti
 .main-menu-container{ margin-left: 5px; }
 .mat-mdc-select-arrow svg { fill: #666666!important; }  /* drop-down arrow beside language - dark grey */
 
-/* search bar */
+
+/* search boxes */
+
+/* persistent search bar */
 .container .top-bar-background-image { background-image: none !important; }  /* giant default header image */
 .custom-search-bar-container .background-overlay, .custom-search-bar-container h1 { display: none !important; } /* giant default header title 'search the library' */
 .container .custom-search-bar-container h2 { display: none; }
@@ -32,102 +36,97 @@ html { --mdc-plain-tooltip-supporting-text-color:#2b292a!important; }  /* toolti
 .mdc-button.mat-mdc-button.cdk-focused.cdk-keyboard-focused {  outline: 1px solid var(--sys-primary);  --mat-mdc-button-persistent-ripple-color: transparent; } /* making the keyboard focus a little less intense */
 .search-bar-container .search-bar-wrapper { background-color: #FFFFFF!important; }
 .search-dropdown-container .search-dropdown-container-button { background-color: #FFFFFF!important; } /* everything drop-down */
-
- /* matching menu selection on main search and advanced search to other menu selection throughout primo - to revisit in the future as it isn’t very fun since it’s grey */
-.add-scope-menu .mat-mdc-menu-item.selected {    border: 1px solid #D2D2D2!important;    background-color: #D2D2D2!important;    color: #2b292a!important;  } 
+.add-scope-menu .mat-mdc-menu-item.selected { border: 1px solid #D2D2D2!important; background-color: #D2D2D2!important; color: #2b292a!important;  }  /* matching menu selection on main search and advanced search to other menu selection throughout primo - to revisit in the future as it isn’t very fun since it’s grey */
 
 /* advanced search */
 .mat-mdc-form-field.search-field { background-color: #fff!important; }  /* search box background colour */
 .mat-mdc-form-field.barcode-search-field { background-color: #fff!important; }  /* barcode search box background colour */
 
+
+/* search results */
+
 /* ual chat widget */ 
 .lcs_slide_out-r{ top:150px !important; }
 
-/* homepage aka new search */
-.main-landing-page .about .about-content .about-text { gap:0.3rem; }
-.home-page-container { margin-top: 0 !important; }
-.links-block .separated-block-item:after { transform: rotate(0deg);  }
-
-
-/* search results */
-[data-qa="link-to-newspaper-search"] { display: none; }
-.pagination-container .current-page { background-color: #275D38!important; color: #ffffff!important; }
-.filter-results-count { color: #6c757d!important; } /* number in brackets beside filters */
-.record-type, .record-indication, .journal-line-text {  color: #6c757d!important;  } /* resource type, article type, etc. */
-/* .search-results-top-bar-wrapper .results-top-bar-container {  background-color: #f5f5f5!important; } */ /* header with count of results, etc. */
-/* .record-number {   background-color: #f5f5f5!important; } */ /* box around results record number */
-
-/* search results + full display + my account */
-/* changing background of info alert to ua blue and icon to black */
-.info-alert-background { background-color: #7BA4DB!important; }
-.info-alert-background .mat-icon svg path { fill: #2b292a!important; }
-
-/* resource recommender grey banner - off as of oct 2026 */
+/* resource recommender banner - off as of oct 2026 */
 .banner-title {font-size: 1.1rem !important;}
 .banner-default-background {background-color: #555 !important;}
 .resource-recommender-banner-overlay {top:0 !important; bottome:0 !important; background-color: transparent !important;}
 .resource-recommender-banner-container {margin-bottom: 1rem !important; height: 10rem !important;}
 
-/* search results + full display - specific icon colour changes */
-.mat-icon[data-mat-icon-name="Share"] svg path { fill: #007A33!important; }
-.mat-icon[data-mat-icon-name="Bookmark"] svg path { fill: #007A33!important; }
-.mat-icon[data-mat-icon-name="Export"] svg path { fill: #007A33!important; }
-.mat-icon[data-mat-icon-name="Citation"] svg path { fill: #007A33!important; }
-.mat-icon.open-access-indicator-color svg path {  fill: #F68D2E!important!important; } /* open access icon - ua orange */
-.mat-icon[data-mat-icon-name="Peer-Reviewed-Indicator"] svg g path {  fill: #7BA4DB;  } /* peer reviewed icon - ua blue */
-.record-indication-wrapper .mat-icon svg [data-mat-icon-name="Peer-Reviewed-Indicator"] g circle, .mat-icon[data-mat-icon-name="Peer-Reviewed-Indicator"].primary-circle svg g circle, .record-indication-wrapper .mat-icon[data-mat-icon-name="Peer-Reviewed-Indicator"] svg g circle { fill: #2b292a!important; } /* peer-reviewed icon eyeball - ua black */
+[data-qa="link-to-newspaper-search"] { display: none; }  /* by default shows at bottom of search results page */
+.pagination-container .current-page { background-color: #275D38!important; color: #ffffff!important; }
+/* .search-results-top-bar-wrapper .results-top-bar-container {  background-color: #f5f5f5!important; } */ /* header with count of results, etc. */
+/* .record-number {   background-color: #f5f5f5!important; } */ /* box around results record number */
+.filter-results-count { color: #6c757d!important; }  /* number in brackets beside filters */
+
+/* exclude icon - as of nov 2026 release it fills in and you can select multiples before selecting apply filters */
+.mat-icon.two-tone-primary-icon svg g path:first-of-type {  fill: #e56a54; }  /* exclude icon box -- ua red */
+.mat-icon.two-tone-primary-icon svg g path {  fill: #2b292a;  }  /* exclude icon checkmark and diagonal line -- black */
+
+/* remove Send to Reading List button - this code should NOT be in the TAlIS view */
+.bookmark-button-container { display:none !important; }
 
 
-/* exclude icon - ua red - as of nov 2026 release it fills in and you can select multiples before selecting apply filters */
-.mat-icon.two-tone-primary-icon svg g path:first-of-type {  fill: #e56a54; }
-.mat-icon.two-tone-primary-icon svg g path {  fill: #2b292a;  }
+/* search results + full display */
 
-/* search results and full display - hiding hat icon and PART OF A COURSE and divider before */
-.mat-divider:has(+ div .mat-icon[data-mat-icon-name="Course-Indicator"]) { display: none; }
-.mat-icon[data-mat-icon-name="Course-Indicator"] ~ span { display: none; }
-.mat-icon[data-mat-icon-name="Course-Indicator"] { display: none; }
+/* brief record info icons/indicators */
+.record-type, .record-indication, .journal-line-text {  color: #6c757d!important;  }  /* resource type, article type, etc. -- grey */
+.mat-icon[data-mat-icon-name="Bookmark"] svg path { fill: #007A33!important; }  /* save icon -- ua green */
+.mat-icon[data-mat-icon-name="Citation"] svg path { fill: #007A33!important; }  /* cite icon -- ua green */
+.mat-icon[data-mat-icon-name="Export"] svg path { fill: #007A33!important; }  /* export icon -- ua green */
+.mat-icon[data-mat-icon-name="Share"] svg path { fill: #007A33!important; }  /* share icon -- ua green */
+.mat-icon.open-access-indicator-color svg path {  fill: #F68D2E!important!important; }  /* open access icon -- ua orange */
+.mat-icon[data-mat-icon-name="Peer-Reviewed-Indicator"] svg g path {  fill: #7BA4DB;  }  /* peer reviewed icon -- ua blue */
+.record-indication-wrapper .mat-icon svg [data-mat-icon-name="Peer-Reviewed-Indicator"] g circle, .mat-icon[data-mat-icon-name="Peer-Reviewed-Indicator"].primary-circle svg g circle, .record-indication-wrapper .mat-icon[data-mat-icon-name="Peer-Reviewed-Indicator"] svg g circle { fill: #2b292a!important; }  /* peer-reviewed icon eyeball -- black */
+rect { fill:#007A33!important; }  /* 'full versions list' stacked paper icon -- ua green */
+.mat-icon[data-mat-icon-name="Available-record-indicator"] circle { fill: #007A33!important; }  /* green circle before available item library/location -- ua green */
+.mat-divider:has(+ div .mat-icon[data-mat-icon-name="Course-Indicator"]) { display: none; }  /* divider before hat icon and 'part of a course' - hiding */
+.mat-icon[data-mat-icon-name="Course-Indicator"] ~ span { display: none; }  /* words 'part of a course' that go with hat icon - i think - hiding */
+.mat-icon[data-mat-icon-name="Course-Indicator"] { display: none; }  /* hat icon - hiding */ 
 
-rect { fill:#007A33!important; }  /* ua green -- "full versions list" stacked paper icon */
-.mat-icon[data-mat-icon-name="Available-record-indicator"] circle { fill: #007A33!important; }  /* ua green -- green circle before available item library/location */
+
+/* search results + full display + my account */
+
+/* info alert banner */
+.info-alert-background { background-color: #7BA4DB!important; } /* info alert background -- ua blue */
+.info-alert-background .mat-icon svg path { fill: #2b292a!important; } /* info alert icon -- standard black */
 
 
 /* full display */
+
+/* requests section - known issue: error when only item level requests present - changing background of error to digital white */
+.no-requests { border-radius: 7px;  background-color:#f5f5f5!important;  }
+
 .search-result-item.full-display {  --sys-body-large: 400 1.25rem/1.5rem "Noto Sans Display", sans-serif; } /* making the title bigger in full display */
 nde-full-display-navigation { border-bottom: transparent!important; }  /* hr near top of full display page (originally bright white) */
 .view-it-card-container { background-color: #FFFFFF!important; }  /* online access boxes background */
 /* .back-to-results-btn.mdc-icon-button, .previous-result-btn.mdc-icon-button, .next-result-btn.mdc-icon-button {  background-color: transparent!important; } */ /* background of arrow navigation on full display */
+/* .results-list .item { background-color: transparent!important; } */ /* background of items under 'other chapters of this book' and 'book reviews' on full display */
 
-/* known issue: error in requests section when only item level requests present - changing background of error to digital white */
-.no-requests { border-radius: 7px;  background-color:#f5f5f5!important;  }
-
-/* full display page - location section */ 
-.getit-location-card { background-color: #fff!important; } /* area all around location section including library name */
+/* location section */ 
+.getit-location-filter-btn[aria-label="Filter by Volume"] { display: none; }  /* highest location level filter - hiding volume */
+.getit-location-filter-btn[aria-label="Filter by Year"] { display: none; }  /* highest location level filter - hiding year */
+.getit-items-filter-btn:not(.getit-items-filter-btn:last-of-type) { display: none; }  /* secondary item level filters - hiding volume and year but showing description */
+.getit-location-card { background-color: #fff!important; }  /* area all around location section including library name -- bright white */
 .even-item .brief-property-header-container { background-color: #fff!important; }
-.brief-property-header-container:last-of-type {  border-bottom-right-radius: .5rem;  border-bottom-left-radius: .5rem;  } /* adding same border radius to container that border is around */
+.brief-property-header-container:last-of-type {  border-bottom-right-radius: .5rem;  border-bottom-left-radius: .5rem; }  /* adding same border radius to container that border is around */
 .not-grouped-by-library { border: 1px solid #d2d2d2!important; }  /* border around item info - originally 2px */
 .getit-location-items-filter-bar { background-color: #f5f5f5!important; border-top-left-radius: .5rem; border-top-right-radius: .5rem; }
 .location-service-link { padding-top: 3px; }  /* align item level ges links with regular request links */
 .location-item .mat-divider:last-of-type {display: none; }  /* hiding hr at the bottom of item info box when not expanded */
 
-/* .results-list .item { background-color: transparent!important; } */ /* background of items under 'other chapters of this book' and 'book reviews' on full display */
 
 /* my account */
-
-/* full page login page styles */
-nde-login-page .image-section img, nde-login-page .login-header-logo { display: none; }
-nde-login-page .top-bar { background-color: #fff !important; }
 
 /* logged in user initials icon */ 
 .user-area .user-area-logged-in span { color: #2b292a!important; font-weight:600!important; }  /* font colour and weight */
 .user-area .user-area-logged-in span.ng-star-inserted {  background-color: #F2CD00 !important;  }  /* circle colour */
 .user-area .user-area-logged-in span { unicode-bidi: bidi-override; direction: rtl; display: inline-block !important; line-height: 24px; } /* user initials order */ 
 
+/* success pop-up */
 .success-alert-background {  background-color: #FFB600!important; }  /* success pop-up in at least my account - ua dark gold */
 .mat-icon[data-mat-icon-name="Success"] svg g path {  fill: #2b292a!important;  }  /* checkmark icon of success pop-up */
-
-/* my account > overview */
-nde-account-overview .notification-text~a { color: #2b292a; }  /* colour of link in blue alert box */
-.search-history-card .search-history-list .search-history-row:nth-child(2n) { background-color: #f5f5f5!important;  } /* 2nd search history item (originally sys-background aka bright white) */
 
 /* changing icon colours in my account */
 /* nde-account .mat-icon:not(.mat-icon.grey-icon-color-no-stroke) svg path { fill: #007A33!important; } */
@@ -142,114 +141,124 @@ nde-account-overview .notification-text~a { color: #2b292a; }  /* colour of link
 .account-menu-container .mat-icon[data-mat-icon-name="searchHistory"] svg path { fill: #007A33!important; }
 .account-menu-container .mat-icon[data-mat-icon-name="accountSetting"] svg path { fill: #007A33!important; }
 
-/* my account > loans */
+/* overview page */
+nde-account-overview .notification-text~a { color: #2b292a; }  /* colour of link in blue alert box */
+.search-history-card .search-history-list .search-history-row:nth-child(2n) { background-color: #f5f5f5!important;  } /* 2nd search history item (originally sys-background aka bright white) */
+
+/* loans page */
 .loan-info .renew-error {  background-color: #e56a54!important; color: #fff; } /* changing not renewable flag to ua red */
 
-/* my account > notices */
+/* notices page */
 nde-blocks h2[data-qa="blocks_messages_header"] { display: none; }  /* hiding block header ‘university of alberta’ */
 nde-blocks .block-item { border: #d2d2d2 solid 1px; }  /* putting block text into box like is typical of my account sections */
 
-/* my account > settings */
+/* settings page */
 nde-personal-details { display: none; } /* hiding personal details box */
 button[data-qa="settings-update-login-btn"] { display: none; } /* hiding update login credentials in personal settings box */
 mat-card-actions:has(button[data-qa="settings-update-login-btn"]) { min-height:0px; }
 
 
-/* remove Send to Reading List button - Should NOT be in TAlIS view */
-.bookmark-button-container { display:none !important; }
+/* additional specific pages */
+
+/* homepage aka new search */
+.main-landing-page .about .about-content .about-text { gap:0.3rem; }
+.home-page-container { margin-top: 0 !important; }
+.links-block .separated-block-item:after { transform: rotate(0deg);  }
+
+/* full page login page styles */
+nde-login-page .image-section img, nde-login-page .login-header-logo { display: none; }
+nde-login-page .top-bar { background-color: #fff !important; }
 
 /* journal search */
 nde-journal-database-layout-component .journal-homepage-container { margin-block-start: 1rem!important; } /* decreasing huge margin at the top */
 .title[data-qa="journal-search-page-title"] { color:#275D38!important; } /* title font colour */
 
-
 /* newspaper search */
 [data-qa="npsearch-main"] .title { font-weight: normal!important; } /* changing “search within newspapers” font to not be bold */
 .title[data-qa="newspaper-search-page-title"] { color:#275D38!important; } /* title font colour */
 
-
 /* browse search */
 .title[data-qa="browse-search-page-title"] { color:#275D38!important; } /* title font colour */
-
 
 /* ill request form */
 .blank-request .divider { display: none; } /* hiding vertical line after book and article radio buttons */
 
 
-/* overriding custom-color-theme-green.css (under assets/color-themes) with ua colours */
+/* ua branding general colour overrides */
+
+/* custom-color-theme-green.css under assets/color-themes */
 :root {
-  --sys-background: #f5f5f5!important; /* digital white -- background for search boxes - main, my account > saved records, everything drop-down in advanced search  */
-  --sys-error: #e56a54!important; /* ua red */
-  --sys-error-container: #e56a54!important; /* ua red */
-  --sys-inverse-on-surface: #F5F5F5!important;  /* digital white -- tooltip font, background of 'Everything' drop-down menu, background of loans,holds+requests,fees boxes in my account */
-  --sys-inverse-primary: #007A33!important; /* ua green */
-  --sys-inverse-surface: #F2CD00!important; /* ua gold -- background of ALL tooltips */
+  --sys-background: #f5f5f5!important;  /* background for search boxes - main, my account > saved records, everything drop-down in advanced search -- digital white */
+  --sys-error: #e56a54!important;  /* ua red */
+  --sys-error-container: #e56a54!important;  /* ua red */
+  --sys-inverse-on-surface: #F5F5F5!important;  /* tooltip font, background of 'Everything' drop-down menu, background of loans,holds+requests,fees boxes in my account -- digital white */
+  --sys-inverse-primary: #007A33!important;  /* ua green */
+  --sys-inverse-surface: #F2CD00!important;  /* background of all tooltips -- ua gold */
   --sys-on-background: #2b292a!important;  /* black font */
-  --sys-on-error: #F5F5F5!important; /* digital white */
-  --sys-on-error-container: #e56a54!important; /* ua red */
-  --sys-on-primary: #F5F5F5!important; /* digital white -- font of place hold button, background of saved records and current session search history in my account */
+  --sys-on-error: #F5F5F5!important;  /* digital white */
+  --sys-on-error-container: #e56a54!important;  /* ua red */
+  --sys-on-primary: #F5F5F5!important;  /* font of place hold button, background of saved records and current session search history in my account -- digital white */
   --sys-on-primary-container: #2b292a!important;  /* black font */ 
   --sys-on-primary-fixed: #2b292a!important;  /* black font */ 
-  --sys-on-primary-fixed-variant: #275D38!important; /* ua dark green -- search summary border */
-  --sys-on-secondary: #F5F5F5!important; /* digital white */
-  --sys-on-secondary-container:#2b292a!important; /* black font -- font of selected drop-down menu item */
-  --sys-on-secondary-fixed: #7BA4DB!important; /* ua blue */
-  --sys-on-secondary-fixed-variant: #7BA4DB!important; /* ua blue */
-  --sys-on-surface: #2b292a!important;  /* black font -- all text that isn't links, pastel version of this is a hover shade for sections in full display page */
-  --sys-on-surface-variant: #275D38!important; /* ua dark green -- search filters circle hover when off ie. to turn on, heading font in advanced search */
-  --sys-on-tertiary: #F5F5F5!important; /* digital white */
-  --sys-on-tertiary-container: #FFB600!important; /* ua dark yellow */
-  --sys-on-tertiary-fixed: #FFB600!important; /* ua dark yellow */
-  --sys-on-tertiary-fixed-variant: #F2CD00!important; /* ua gold */
-  --sys-outline: #6c757d!important; /* dark grey -- all icons, resource type/peer review labels, border around selected item in drop-down menu, x in search bar */
-  --sys-outline-variant: #D2D2D2!important; /* grey -- border around horizontal filter buttons, hr in full display except for very top */
-  --sys-primary: #275D38!important; /* ua dark green -- font of all links, some icons, some borders, background of place hold button, border of loans,holds+requests,fees boxes in my account, background of logged in user icon circle */
-  --sys-primary-container: #D2D2D2!important; /* grey -- background of alert box (full display page, chapters of this book section, 'please note that this is not necessarily a complete list of chapters'), hover background of arrows in browse similar, hover background of circle in filters when on ie. to turn off  */
-  --sys-primary-fixed: #275D38!important; /* ua dark green */
-  --sys-primary-fixed-dim: #F2CD00!important; /* ua gold -- background of 'signed in as' */
-  --sys-scrim: #2b292a!important; /* black font */
-  --sys-secondary: #007A33!important; /* ua green */
-  --sys-secondary-container: #D2D2D2!important; /* grey -- background of selected drop-down menu item */
-  --sys-secondary-fixed: #007A33!important; /* ua green */
-  --sys-secondary-fixed-dim: #6CC24A!important; /* ua light green */
-  --sys-shadow: #2b292a!important; /* black font */
-  --sys-surface: #F5F5F5!important; /* digital white */
-  --sys-surface-bright: #F5F5F5!important; /* digital white */
-  --sys-surface-container: #F5F5F5!important; /* digital white */
-  --sys-surface-container-high: #F5F5F5!important; /* digital white */
-  --sys-surface-container-highest: #F5F5F5!important; /* digital white */
-  --sys-surface-container-low: #FFFFFF!important; /* bright white -- background of request options and horizontal line on full display page */
-  --sys-surface-container-lowest: #F5F5F5!important; /* digital white */
-  --sys-surface-dim: #D2D2D2!important; /* grey */
-  --sys-surface-tint: #D2D2D2!important; /* grey */
-  --sys-surface-variant: #D2D2D2!important; /* grey -- background of filter toggles when off */
-  --sys-tertiary: #F2CD00!important; /* ua gold */
-  --sys-tertiary-container: #F2CD00!important; /* ua gold */
-  --sys-tertiary-fixed: #F2CD00!important; /* ua gold */
-  --sys-tertiary-fixed-dim: #FFB600!important; /* ua dark yellow */  
-
-/* overriding root with ua colours */
-  --darkText: #2b292a!important; /* black font */
-  --lightText: #6c757d!important; /* dark grey */
-  --whiteText: #F5F5F5!important; /* digital white */
-  --valid: #007A33!important; /* ua green */
-  --validDark: #275D38!important; /* ua dark green */
-  --disableText: #D2D2D2!important; /* grey */
-  --validBG: #6CC24A!important; /* ua light green */
-  --intermediate: #F68D2E!important; /* ua orange */
-  --whiteBG: #F5F5F5!important; /* digital white -- entire page background including navbar */
-  --notice: #7BA4DB!important; /* ua blue */
-  --dark : #2b292a!important; /* black font */
+  --sys-on-primary-fixed-variant: #275D38!important;  /* search summary border -- ua dark green */
+  --sys-on-secondary: #F5F5F5!important;  /* digital white */
+  --sys-on-secondary-container:#2b292a!important;  /* font of selected drop-down menu item -- black */
+  --sys-on-secondary-fixed: #7BA4DB!important;  /* ua blue */
+  --sys-on-secondary-fixed-variant: #7BA4DB!important;  /* ua blue */
+  --sys-on-surface: #2b292a!important;  /* all text that isn't links, pastel version of this is a hover shade for sections in full display page -- black */
+  --sys-on-surface-variant: #275D38!important;  /* search filters circle hover when off ie. to turn on, heading font in advanced search -- ua dark green */
+  --sys-on-tertiary: #F5F5F5!important;  /* digital white */
+  --sys-on-tertiary-container: #FFB600!important;  /* ua dark yellow */
+  --sys-on-tertiary-fixed: #FFB600!important;  /* ua dark yellow */
+  --sys-on-tertiary-fixed-variant: #F2CD00!important;  /* ua gold */
+  --sys-outline: #6c757d!important;  /* default of all icons, resource type/peer review labels, border around selected item in drop-down menu, x in search bar -- dark grey */
+  --sys-outline-variant: #D2D2D2!important;  /* border around horizontal filter buttons, hr in full display except for very top -- grey */
+  --sys-primary: #275D38!important;  /* font of all links, some icons, some borders, background of place hold button, border of loans,holds+requests,fees boxes in my account, background of logged in user icon circle -- ua dark green */
+  --sys-primary-container: #D2D2D2!important;  /* default background of alert box (full display page, chapters of this book section, 'please note that this is not necessarily a complete list of chapters'), hover background of arrows in browse similar, hover background of circle in filters when on ie. to turn off -- grey */
+  --sys-primary-fixed: #275D38!important;  /* ua dark green */
+  --sys-primary-fixed-dim: #F2CD00!important;  /* background of 'signed in as' -- ua gold */
+  --sys-scrim: #2b292a!important;  /* black font */
+  --sys-secondary: #007A33!important;  /* ua green */
+  --sys-secondary-container: #D2D2D2!important;  /* background of selected drop-down menu item -- grey */
+  --sys-secondary-fixed: #007A33!important;  /* ua green */
+  --sys-secondary-fixed-dim: #6CC24A!important;  /* ua light green */
+  --sys-shadow: #2b292a!important;  /* black font */
+  --sys-surface: #F5F5F5!important;  /* digital white */
+  --sys-surface-bright: #F5F5F5!important;  /* digital white */
+  --sys-surface-container: #F5F5F5!important;  /* digital white */
+  --sys-surface-container-high: #F5F5F5!important;  /* digital white */
+  --sys-surface-container-highest: #F5F5F5!important;  /* digital white */
+  --sys-surface-container-low: #FFFFFF!important;  /* background of request options and horizontal line on full display page -- bright white */
+  --sys-surface-container-lowest: #F5F5F5!important;  /* digital white */
+  --sys-surface-dim: #D2D2D2!important;  /* grey */
+  --sys-surface-tint: #D2D2D2!important;  /* grey */
+  --sys-surface-variant: #D2D2D2!important;  /* background of filter toggles when off -- grey */
+  --sys-tertiary: #F2CD00!important;  /* ua gold */
+  --sys-tertiary-container: #F2CD00!important;  /* ua gold */
+  --sys-tertiary-fixed: #F2CD00!important;  /* ua gold */
+  --sys-tertiary-fixed-dim: #FFB600!important;  /* ua dark yellow */  
+	/* root */
+  --darkText: #2b292a!important;  /* black font */
+  --lightText: #6c757d!important;  /* dark grey */
+  --whiteText: #F5F5F5!important;  /* digital white */
+  --valid: #007A33!important;  /* ua green */
+  --validDark: #275D38!important;  /* ua dark green */
+  --disableText: #D2D2D2!important;  /* grey */
+  --validBG: #6CC24A!important;  /* ua light green */
+  --intermediate: #F68D2E!important;  /* ua orange */
+  --whiteBG: #F5F5F5!important;  /* entire page background including navbar -- digital white */
+  --notice: #7BA4DB!important;  /* ua blue */
+  --dark : #2b292a!important;  /* black font */
   --darkBGWithOpacity: rgba(46, 46, 39, 0.8);
   --blackBGWithOpacity: rgba(0, 0, 0, 0.85);
-  --divider: #6c757d!important; /* dark grey */
-  --switchTrackColor: #D2D2D2!important; /* grey */
-  --border: #D2D2D2!important; /* grey -- all borders (search boxes, hr under search boxes, boxes around item info and location info on full display page) */
-  --scrollBar: #D2D2D2!important; /* grey */
-  --lightBG: #F5F5F5!important; /* digital white -- header/record number background in search results & my account, arrow navigation background/item level rows in location area on full display */
-  --darkBG: #D2D2D2!important; /* grey -- header of locations box on full display page */
-  --searchBarBG: #F5F5F5!important; /* digital white */
-  --checkboxBorder:  #6c757d!important; /* dark grey */
-  --neutralBG: #F5F5F5!important; /* digital white */
+  --divider: #6c757d!important;  /* dark grey */
+  --switchTrackColor: #D2D2D2!important;  /* grey */
+  --border: #D2D2D2!important;  /* all borders - search boxes, hr under search boxes, boxes around item info and location info on full display page -- grey */
+  --scrollBar: #D2D2D2!important;  /* grey */
+  --lightBG: #F5F5F5!important;  /* header/record number background in search results & my account, arrow navigation background/item level rows in location area on full display -- digital white */
+  --darkBG: #D2D2D2!important;  /* header of locations box on full display page -- grey */
+  --searchBarBG: #F5F5F5!important;  /* digital white */
+  --checkboxBorder:  #6c757d!important;  /* dark grey */
+  --neutralBG: #F5F5F5!important;  /* digital white */
 
 }
