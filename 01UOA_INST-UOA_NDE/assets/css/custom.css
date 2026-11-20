@@ -5,6 +5,9 @@
 .ual-top-banner img { float:left; height:50px; }
 .ual-library-tag { float:left; color:#F2CD00 !important; font-size:1.8rem; text-decoration: none!important; margin:10px 0 0 35px; font-weight: 300;}
 
+/*chat widget */
+#lcs_slide_out_button-9350{border-width:0 !important;} 
+
 /* ua green header + primo white navbar */
 .ual-inner, .top-bar .header-container { width: 100%;  margin: 0 auto;}
 @media (min-width: 600px) and (max-width: 959.98px) { .ual-inner, .top-bar .header-container {  width: clamp(288px, 88.42544317%, 848px);  }}
